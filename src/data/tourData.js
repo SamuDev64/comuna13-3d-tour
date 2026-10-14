@@ -2,170 +2,194 @@ export const TOUR_STOPS = [
   {
     id: 'intro',
     index: 0,
+    roomCode: 'ENTRANCE · ABURRA VALLEY',
     momentBadge: 'Moment 1 · Welcome (1 min)',
     rubricFocus: 'Communication',
-    tag: 'AERIAL OVERVIEW · ABURRA VALLEY',
-    title: 'Comuna 13: Where Art Rebuilt a Mountain',
-    subtitle:
-      'Welcome to our interactive 3D tour of San Javier (Comuna 13) in Medellin, Colombia — designed for cultural investors, public policymakers, and conscious visitors.',
-    summary:
-      'Perched on the western slopes of the Aburra Valley, home to approximately 160,000 residents, Comuna 13 has evolved from one of Colombia’s most conflict-affected urban hillsides into an internationally recognized laboratory of social urbanism, hip-hop pedagogy, and street art memory.',
+    title: 'Comuna 13: Open-Air Virtual Museum',
+    subtitle: 'San Javier Hillside, Medellin · 160,000 Residents · Cultural & Investment Tour',
+    heroImage: './images/escalators-mural.jpg',
+    visualTags: ['~160,000 Residents', 'San Javier Hillside', 'Open-Air Art Museum'],
+    audioNarration:
+      'Welcome to the Comuna 13 Virtual Museum. Located on the western slopes of Medellin and home to 160,000 residents, this hillside transformed from urban conflict into Latin America’s largest open-air gallery of street art, hip-hop, and social urbanism.',
     minimalCues: [
-      'Greet our 3 visitors & introduce the 3D hillside map',
-      'Audience: Cultural investors, public grantmakers & conscious travelers',
-      'Core Thesis: Art transformed Comuna 13, but sustained public & ethical investment is essential'
+      'Greet 3 visitors · Introduce the 3D virtual museum',
+      'Target: Cultural investors & public decision-makers',
+      'Thesis: Art transformed C13 — ethical funding protects it'
     ],
-    keyStat: { value: '~160,000', label: 'Residents in San Javier (Comuna 13)' },
-    cameraPos: [0, 26, 48],
+    keyStat: { value: '~160,000', label: 'Residents in San Javier' },
+    cameraPos: [0, 24, 44],
     cameraTarget: [0, 6, 0],
-    linkedHotspotId: null
+    minimapPos: { x: 50, y: 86 },
+    linkedHotspotId: 'escalators',
+    autoDrawer: null
   },
   {
     id: 'history',
     index: 1,
+    roomCode: 'ROOM 01 · HISTORICAL MEMORY',
     momentBadge: 'Moment 2 · Guide: History (1.5 min)',
     rubricFocus: 'Communication + Language',
-    tag: 'HISTORICAL MEMORY · 1990s–2002',
-    title: 'From Urban Conflict to Collective Dignity',
-    subtitle:
-      'Understanding the resilience of Comuna 13 requires honoring its history with accuracy, respect, and zero sensationalism.',
-    summary:
-      'Built largely by families displaced by rural violence, Comuna 13’s steep alleys became contested by urban militias (ELN, FARC, and CAP) in the 1990s. In May 2002 (Operation Mariscal) and October 16–17, 2002 (Operation Orion), state forces launched the largest urban military operations in Colombia’s armed conflict. Amid fear, arbitrary detentions, and enforced disappearances later condemned by the Inter-American Court of Human Rights (2017), residents waved white sheets from rooftops to demand peace — beginning a community-led movement to reclaim their identity.',
+    title: 'From 2002 Conflict to White-Sheet Peace',
+    subtitle: 'Honoring Operations Mariscal & Orion (2002) with Dignity and Zero Sensationalism',
+    heroImage: './images/history-memory.jpg',
+    visualTags: ['May & Oct 2002 Operations', 'White-Sheet Peace March', '2017 Court Ruling'],
+    audioNarration:
+      'Room 1 examines historical memory. In May and October 2002, Operations Mariscal and Orion brought intense urban warfare to Comuna 13. Residents waved white sheets from rooftops to demand peace, refusing to remain victims and reclaiming their neighborhood through truth and art.',
     minimalCues: [
-      '1990s–2002: Steep terrain isolated residents amid urban armed conflict',
-      'May & Oct 2002: Operations Mariscal & Orion left deep trauma & white-sheet peace marches',
-      'Shift in identity: Residents refused to be defined solely as victims — becoming leaders & creators'
+      '1990s–2002: Rural displacement & urban armed conflict',
+      '2002 Operations Mariscal & Orion → White sheets for peace',
+      '2017 Inter-American Court ruling & community resilience'
     ],
-    keyStat: { value: 'Oct 2002', label: 'Operation Orion & Rooftop White-Sheet Peace Protest' },
-    cameraPos: [-16, 13, 24],
-    cameraTarget: [-4, 6, -2],
-    linkedHotspotId: 'murals'
+    keyStat: { value: 'Oct 2002', label: 'Operation Orion & Rooftop Peace Protest' },
+    cameraPos: [-14, 11, 21],
+    cameraTarget: [-4, 6, 1],
+    minimapPos: { x: 28, y: 72 },
+    linkedHotspotId: 'murals',
+    autoDrawer: null
   },
   {
     id: 'escalators',
     index: 2,
+    roomCode: 'ROOM 02 · SOCIAL URBANISM',
     momentBadge: 'Moment 2 · Guide: Infrastructure (1.5 min)',
     rubricFocus: 'Communication + Language',
-    tag: 'SOCIAL URBANISM · DECEMBER 2011',
-    title: '384 Meters That Connected a Divided City',
-    subtitle:
-      'Public mobility infrastructure acted as the physical backbone for social and economic inclusion.',
-    summary:
-      'Inaugurated on December 26, 2011 with a US$6.7 million municipal investment, six outdoor electric escalator sections climb 384 meters (nearly 1,260 feet) up the steep hillside. Replacing 350+ concrete steps equivalent to a 28-story building, the escalators reduced a grueling 35-minute climb to a 6-minute ride for over 12,000 immediate residents, proving that dignified public infrastructure belongs in historically marginalized neighborhoods.',
+    title: 'The 384-Meter Outdoor Escalators (2011)',
+    subtitle: 'Six Covered Orange Sections Replacing a 28-Story Steep Climb',
+    heroImage: './images/escalators-mural.jpg',
+    visualTags: ['384 Meters Long', '35 Min → 6 Min Ride', 'US$6.7M Public Cost'],
+    audioNarration:
+      'Room 2 showcases the outdoor electric escalators inaugurated on December 26, 2011. Stretching 384 meters across six sections at a cost of 6.7 million dollars, they reduced a grueling 35-minute climb down to just 6 minutes for over 12,000 hillside residents.',
     minimalCues: [
-      'Inaugurated Dec 2011: 6 outdoor sections spanning 384 meters (28 stories high)',
-      'Mobility revolution: Cut a 35-minute steep climb down to just 6 minutes',
-      'Catalyst: US$6.7M public investment opened the corridor to commerce & accessibility'
+      'Inaugurated Dec 26, 2011: 6 sections (28 stories high)',
+      'Slashed a 35-minute steep hike down to 6 minutes',
+      'US$6.7M public investment connected 12,000+ residents'
     ],
-    keyStat: { value: '384 m', label: '6 Escalator Sections (35 min climb → 6 min ride)' },
-    cameraPos: [6, 11, 19],
-    cameraTarget: [0, 7, 0],
-    linkedHotspotId: 'escalators'
+    keyStat: { value: '384 m', label: '6 Escalator Sections (35 min → 6 min)' },
+    cameraPos: [5, 10, 17],
+    cameraTarget: [0, 7, 1],
+    minimapPos: { x: 52, y: 60 },
+    linkedHotspotId: 'escalators',
+    autoDrawer: null
   },
   {
     id: 'graffitour',
     index: 3,
-    momentBadge: 'Moment 2 · Guide: Visual Art Analysis (1 min)',
+    roomCode: 'ROOM 03 · OPEN-AIR GALLERY',
+    momentBadge: 'Moment 2 · Guide: Street Art (1 min)',
     rubricFocus: 'Communication + Language',
-    tag: 'OPEN-AIR GALLERY · GRAFFITOUR',
-    title: 'Walls That Speak: Street Art as Living Archive',
-    subtitle:
-      'Murals in Comuna 13 are not mere decoration — they are visual testimonies painted by local artists to preserve collective memory.',
-    summary:
-      'Every mural along the climb carries deliberate symbolism: Afro-Colombian and Indigenous mothers honoring the disappeared (“The Mothers Were Right”), white doves emerging from broken chains, vibrant Andean hummingbirds representing renewal, and portraits of community elders. Guided by local storytellers, the Graffitour transforms passive sightseeing into an active dialogue on memory, justice, and neighborhood pride.',
+    title: 'Graffitour: Walls That Preserve Memory',
+    subtitle: 'Over 100 Community Murals Painted by Local Urban Artists',
+    heroImage: './images/mural-alley.jpg',
+    visualTags: ['100+ Curated Murals', 'Mothers of Truth', 'Local Storytellers'],
+    audioNarration:
+      'Room 3 enters the Graffitour corridor. Here, murals painted by local artists like Chota 13, YesGraff, and Perrograff preserve collective memory, honoring Afro-Colombian and Indigenous mothers, white handkerchiefs of peace, and Andean biodiversity.',
     minimalCues: [
-      'Visual symbolism: Mothers of the disappeared, white cloths of Mariscal, Andean flora',
-      'Artistic reclamation: Residents decide how their history is represented on their own walls',
-      'Contextual storytelling: Local guides decode each mural’s political and emotional layer'
+      'Visual symbolism: Mothers of 2002, white cloths & Andean birds',
+      'Residents decide how their own history is represented',
+      'Local guides decode the story behind every brushstroke'
     ],
-    keyStat: { value: '100+ Murals', label: 'Curated Along the Main Cultural Corridor' },
-    cameraPos: [-10, 9, 15],
-    cameraTarget: [-3, 6, 1],
-    linkedHotspotId: 'murals'
+    keyStat: { value: '100+ Murals', label: 'Living Visual Archive Along the Climb' },
+    cameraPos: [-9, 8.5, 13],
+    cameraTarget: [-4, 6, 2],
+    minimapPos: { x: 34, y: 52 },
+    linkedHotspotId: 'murals',
+    autoDrawer: null
   },
   {
     id: 'hiphop',
     index: 4,
-    momentBadge: 'Moment 2 · Guide: Community Leadership (1 min)',
+    roomCode: 'ROOM 04 · HIP-HOP PEDAGOGY',
+    momentBadge: 'Moment 2 · Guide: Hip-Hop (1 min)',
     rubricFocus: 'Communication + Language',
-    tag: 'YOUTH LEADERSHIP · CASA KOLACHO',
-    title: 'Casa Kolacho & The Four Elements of Hip-Hop',
-    subtitle:
-      'How a grassroots collective turned rap, DJing, breakdance, and graffiti into a school of peace.',
-    summary:
-      'Founded in 2013 in tribute to murdered hip-hop leader Hector Pacheco (“Kolacho”), Casa Kolacho pioneered the original Graffitour and established free youth workshops in lyricism, beat-making, breakdancing, and muralism. By giving young people artistic skills, cultural identity, and fair income as tour guides and performers, hip-hop became the neighborhood’s most effective violence-prevention program.',
+    title: 'Casa Kolacho & The 4 Hip-Hop Elements',
+    subtitle: 'Rap, DJing, Breakdance & Graffiti as Youth Peacebuilding',
+    heroImage: './images/kolacho-hiphop.jpg',
+    visualTags: ['Founded 2013', 'Rap · DJ · Dance · Art', 'Youth Cultural School'],
+    audioNarration:
+      'Room 4 highlights Casa Kolacho, founded in 2013 in memory of hip-hop leader Hector Pacheco, known as Kolacho. Through free workshops in rap, DJing, breakdance, and graffiti, Casa Kolacho empowers thousands of youths and pioneered the original Graffitour.',
     minimalCues: [
-      'Casa Kolacho (est. 2013): Founded by local hip-hop artists as a non-violent resistance hub',
-      '4 Elements of Hip-Hop: Rap, DJing, breakdance, and graffiti empower local youth',
-      'Economic dignity: Youth earn sustainable livelihoods as cultural guides and performers'
+      'Founded in 2013 honoring hip-hop leader "Kolacho"',
+      'Free youth workshops in rap, DJing, dance & graffiti',
+      'Created the original Graffitour & dignified youth jobs'
     ],
-    keyStat: { value: '4 Elements', label: 'Rap, DJing, Breakdance & Graffiti Youth Pedagogy' },
-    cameraPos: [14, 10, 16],
-    cameraTarget: [5, 6, -1],
-    linkedHotspotId: 'kolacho'
+    keyStat: { value: '4 Pillars', label: 'Rap, DJing, Breakdance & Graffiti School' },
+    cameraPos: [12, 9, 14],
+    cameraTarget: [5.5, 6, 1.5],
+    minimapPos: { x: 70, y: 54 },
+    linkedHotspotId: 'kolacho',
+    autoDrawer: null
   },
   {
     id: 'share',
     index: 5,
-    momentBadge: 'Moment 3 · Share: Personal Perspective (1 min)',
+    roomCode: 'ROOM 05 · UPPER VIEWPOINTS',
+    momentBadge: 'Moment 3 · Share: Personal Visit (1 min)',
     rubricFocus: 'Communication + Language',
-    tag: 'FIRST-HAND EXPERIENCE · HILLSIDE VIEWPOINTS',
-    title: 'Standing at the Viewpoint: Feeling the Energy Shift',
-    subtitle:
-      'What happens when you step off the sixth escalator onto the upper panoramic balcony of Comuna 13.',
-    summary:
-      'Walking up the hillside, the sensory impact is unforgettable: the bass of live freestyle hip-hop echoes against painted brick walls, the scent of fresh roasted Antioquia coffee and green mango sorbet fills the air, and the entire Aburra Valley unfolds below. Experiencing the neighborhood firsthand shifts your perspective from sympathy to deep admiration — yet seeing the packed narrow walkways also reveals why unplanned mass tourism strains daily life for local families.',
+    title: 'Panoramic Balconies & Barrio Atmosphere',
+    subtitle: 'Freestyle Beats, Artisanal Mango Sorbets & Warm Hillside Lights',
+    heroImage: './images/viewpoint-plaza.jpg',
+    visualTags: ['270° Valley Vista', 'Live Breakdance Shows', 'Crowded Narrow Stairs'],
+    audioNarration:
+      'Room 5 reaches the upper panoramic viewpoints at the top of the sixth escalator. Standing here at dusk as warm lights glow across the brick houses, you feel immense community pride, while also observing how narrow stairs struggle to handle mass tourist crowds.',
     minimalCues: [
-      'Sensory memory: Freestyle beats, neon murals, warm hospitality & panoramic valley views',
-      'Emotional shift: Moving from reading about conflict to witnessing creative resilience firsthand',
-      'Critical observation: Seeing crowded alleys firsthand highlights the urgent need for organized infrastructure'
+      'Sensory energy: Live freestyle beats, coffee & valley views',
+      'Emotional shift: From reading conflict to witnessing pride',
+      'Crowded stairs firsthand show urgent infrastructure need'
     ],
-    keyStat: { value: '4.7 / 5.0', label: 'Visitor Experience Rating Across 40,000+ Reviews' },
-    cameraPos: [0, 16, 13],
-    cameraTarget: [0, 11, -6],
-    linkedHotspotId: 'viewpoints'
+    keyStat: { value: '4.7 / 5.0', label: 'Visitor Experience Rating (40k+ Reviews)' },
+    cameraPos: [0, 15, 11],
+    cameraTarget: [0, 11, -5],
+    minimapPos: { x: 50, y: 28 },
+    linkedHotspotId: 'viewpoints',
+    autoDrawer: null
   },
   {
     id: 'recommend',
     index: 6,
-    momentBadge: 'Moment 4 · Recommend: Data & Comparison (2 min)',
+    roomCode: 'ROOM 06 · DATA & 2035 FORECAST',
+    momentBadge: 'Moment 4 · Recommend & Compare (2 min)',
     rubricFocus: 'Argumentation + Language',
-    tag: 'DATA, COMPARISON & 2035 FORECAST',
-    title: 'Weighing the Evidence: Why Comuna 13 Deserves Targeted Support',
-    subtitle:
-      'Comparing Medellin’s cultural districts and forecasting what Comuna 13 will have achieved by 2035 if backed by responsible investment.',
-    summary:
-      'With 90,000 to 136,000 monthly visitors (1.1M–1.6M annually, est.) and over 2,750 formally registered local businesses (Medellin Chamber of Commerce, 2023), Comuna 13 generates far higher grassroots social return per dollar than already-saturated commercial districts like El Poblado. However, without public and impact investment in secondary walkways, mobility access for residents with disabilities, and cultural grants, overcrowding and gentrification could erode the very community that built this miracle. If stakeholders fund community-led infrastructure today, by 2035 Comuna 13 will have established Latin America’s premier self-sustaining creative economy.',
+    title: 'Data, District Comparison & 2035 Vision',
+    subtitle: '2,750+ Local Businesses · 90k–136k Monthly Visitors · Future Perfect Forecast',
+    heroImage: './images/metrocable-sanjavier.jpg',
+    visualTags: ['2,750+ Formal Shops', '90k–136k Visitors/Mo', '2035 Future Simulator'],
+    audioNarration:
+      'Room 6 presents our comparative data and 2035 projection. With over 2,750 formal local businesses and up to 136,000 monthly visitors, Comuna 13 delivers far greater grassroots impact than El Poblado. If funded responsibly today, by 2035 it will have decentralized visitor flows and protected local ownership.',
     minimalCues: [
-      'Compare places: Higher grassroots social ROI than El Poblado; safer guided corridors than Plaza Botero',
-      'Weigh consequences: 90k–136k monthly visitors strain escalators & block resident taxi/emergency access',
-      '2035 Conditional Projection: "If we fund community infrastructure now, by 2035 it will have decentralized visitor flows and protected local ownership"'
+      'Compare: Higher grassroots ROI than El Poblado or Botero',
+      'Risk: 90k–136k monthly visitors strain escalators & access',
+      '2035 Forecast: "If funded now, by 2035 it will have..."'
     ],
-    keyStat: { value: '2,750+', label: 'Registered Local Businesses (Chamber of Commerce, 2023)' },
-    cameraPos: [-12, 18, 30],
+    keyStat: { value: '2,750+', label: 'Registered Local Businesses (2023)' },
+    cameraPos: [-11, 17, 26],
     cameraTarget: [0, 8, 0],
-    linkedHotspotId: 'commerce'
+    minimapPos: { x: 38, y: 40 },
+    linkedHotspotId: 'commerce',
+    autoDrawer: 'data'
   },
   {
     id: 'invest',
     index: 7,
-    momentBadge: 'Moment 5 · Chat: Investment, Q&A & Feedback (3+2 min)',
+    roomCode: 'ROOM 07 · INVESTMENT & CHAT',
+    momentBadge: 'Moment 5 · Chat, CTA & Q&A (3+2 min)',
     rubricFocus: 'Argumentation + Communication',
-    tag: 'RESPONSIBLE INVESTMENT · CALL TO ACTION & Q&A',
-    title: 'Invest With the Community, Not Over It',
-    subtitle:
-      'Six high-impact opportunities, transparent risk mitigation, and our interactive Q&A + Glow & Grow discussion.',
-    summary:
-      'True impact investment in Comuna 13 means partnering directly with local collectives, youth studios, family-owned hospitality, and public mobility upgrades. Explore our six investment pillars and risk-mitigation blueprint below — then join the open gallery conversation to share your questions, perspectives, and one Glow + one Grow.',
+    title: 'Responsible Investment & Gallery Chat',
+    subtitle: '6 Community Capital Pillars · Risk Mitigation · Open Q&A + Glow & Grow',
+    heroImage: './images/viewpoint-plaza.jpg',
+    visualTags: ['6 Investment Pillars', 'Anti-Displacement Trust', '1 Glow + 1 Grow Chat'],
+    audioNarration:
+      'Room 7 concludes our tour with six responsible investment opportunities, risk mitigation strategies against overcrowding and gentrification, and our open gallery conversation. Please share your questions and one Glow and one Grow.',
     minimalCues: [
-      '6 Actionable Pillars: Cultural tourism, local gastronomy, eco-homestays, creative studios, youth tech, public infrastructure',
-      'Risk Mitigation: Community revenue-sharing charters, upper-hillside pedestrian loops & anti-displacement trusts',
-      'Open Gallery Chat: Answer visitor questions with examples + ask for 1 Glow & 1 Grow!'
+      '6 Pillars: Tourism, Gastronomy, Homestays, Art IP, Tech, Mobility',
+      'Mitigation: Timed visitor flows & resident co-ownership',
+      'Open Gallery Chat: Visitor questions + 1 Glow & 1 Grow!'
     ],
-    keyStat: { value: '90k–136k', label: 'Monthly Visitors Ready for Sustainable Value Creation' },
-    cameraPos: [0, 22, 38],
+    keyStat: { value: '90k–136k', label: 'Monthly Visitors Ready for Ethical Value' },
+    cameraPos: [0, 21, 34],
     cameraTarget: [0, 7, 0],
-    linkedHotspotId: 'metrocable'
+    minimapPos: { x: 74, y: 34 },
+    linkedHotspotId: 'metrocable',
+    autoDrawer: 'invest'
   }
 ];
 
@@ -175,21 +199,58 @@ export const HOTSPOTS = [
     number: 1,
     name: 'Outdoor Electric Escalators (2011)',
     category: 'Social Urbanism & Mobility',
+    artifactType: 'escalator',
+    artifactTitle: '3D Scale Model: Orange Roof Escalator Module (Schindler, 384m)',
     coordinates: [0, 7.2, 2.2],
     color: '#ff5a1f',
     year: 'Inaugurated Dec 26, 2011',
-    investmentMetric: 'US$6.7 Million Municipal Investment',
-    headline: '384 Meters of Public Escalators Replacing a 28-Story Climb',
-    description:
-      'Engineered by Schindler and inaugurated under Mayor Alonso Salazar, these six covered outdoor escalator sections snake 384 meters up the steep central spine of San Javier. Before 2011, elderly residents, pregnant women, and workers had to climb more than 350 steep, irregular concrete steps.',
-    artAndCommunityRole:
-      'More than mechanical transit, the orange-roofed escalators became the physical spine of community pride. Every landing platform functions as a public plaza surrounded by murals, dance stages, and family micro-enterprises.',
-    investmentAngle:
-      'Currently operating far above their original 12,000-resident daily capacity due to 90,000–136,000 monthly tourists. Public-private co-investment is urgently needed for parallel pedestrian relief stairs, shaded rest decks, and dedicated resident priority lanes.',
+    investmentMetric: 'US$6.7M Public Investment',
+    headline: '384 Meters of Outdoor Escalators Replacing a 28-Story Climb',
+    heroImage: './images/escalators-mural.jpg',
+    images: [
+      {
+        src: './images/escalators-mural.jpg',
+        caption: 'Real Photograph (User Archive): Visitors riding the Comuna 13 outdoor escalators beside giant murals',
+        credit: 'Real Site Photograph · Comuna 13 Medellin'
+      },
+      {
+        src: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Medellin_Comuna_13.jpg',
+        fallbackSrc: './images/metrocable-sanjavier.jpg',
+        caption: 'Wikimedia Commons Archival Photo: Steep hillside density of San Javier (Comuna 13)',
+        credit: 'Wikimedia Commons · CC BY-SA'
+      },
+      {
+        src: './images/metrocable-sanjavier.jpg',
+        caption: 'Architectural Visualization: Orange weatherproof escalator roofs along the hillside spine',
+        credit: '3D Architectural Visualization'
+      }
+    ],
+    youtubeId: 'SNZIobJtcik',
+    youtubeTitle: 'Comuna 13 Outdoor Electric Escalators — Real 4K Walkthrough',
+    extraVideos: [
+      { id: 'SNZIobJtcik', label: 'Escalators 4K Climb' },
+      { id: 'sbpNIyM8JeI', label: 'Full 2026 Corridor Tour' }
+    ],
+    lat: 6.2453,
+    lng: -75.6197,
+    streetViewQuery: 'Escalator+Comuna+13,Carrera+109+36-63,Medellin,Colombia',
+    audioText:
+      'Exhibit 1: The Outdoor Electric Escalators. Inaugurated in December 2011 for 6.7 million dollars, these six covered escalator sections climb 384 meters up the steep hillside, reducing a 35-minute climb to 6 minutes for 12,000 residents.',
+    visualChips: [
+      '6 Covered Outdoor Sections',
+      '384 Meters Total Length',
+      '35 Min Hike → 6 Min Ride',
+      'Serves 12,000+ Residents'
+    ],
+    shortPoints: [
+      'Replaced 350+ steep concrete steps equivalent to a 28-story building.',
+      'Every landing platform acts as a neighborhood plaza surrounded by murals and shops.',
+      'Investment Need: Parallel pedestrian relief stairs & resident priority lanes.'
+    ],
     stats: [
-      { label: 'Total Length', value: '384 meters (1,260 ft) · 6 sections' },
-      { label: 'Time Saved', value: '35-min steep hike reduced to 6 minutes' },
-      { label: 'Initial Public Cost', value: 'US$6.7M (Verified, Elevator World / URBANET)' }
+      { label: 'Total Length', value: '384 m (6 sections)' },
+      { label: 'Time Saved', value: '35 min → 6 min' },
+      { label: 'Public Cost', value: 'US$6.7 Million' }
     ]
   },
   {
@@ -197,109 +258,292 @@ export const HOTSPOTS = [
     number: 2,
     name: 'Graffitour Murals & Memory Corridor',
     category: 'Street Art & Collective Memory',
+    artifactType: 'mural',
+    artifactTitle: '3D Exhibit: Layered Street-Art Memory Wall & White Peace Cloth',
     coordinates: [-5.5, 6.2, 3.0],
     color: '#ec4899',
-    year: '2011 – Present (Continuously Renewed)',
-    investmentMetric: '100+ Large-Scale Community Murals',
-    headline: 'An Open-Air Museum Decoding History, Grief, and Resilience',
-    description:
-      'Painted by local urban artists such as Chota 13, YesGraff, Perrograff, and dynamic youth crews, these murals chronicle the neighborhood’s struggles and rebirth. Iconic works depict mothers searching for the disappeared of 2002, white handkerchiefs waved during Operation Mariscal, and vibrant fusions of Afro-Colombian and Andean heritage.',
-    artAndCommunityRole:
-      'Art here serves as non-violent resistance and historical documentation. Instead of outsiders writing Comuna 13’s narrative, residents use spray paint to preserve truth, honor victims without sensationalism, and inspire younger generations.',
-    investmentAngle:
-      'Cultural patronage, mural conservation grants, AR (Augmented Reality) audio-guide licensing that pays royalties directly to the painting artists, and international art residency exchanges.',
+    year: '2011 – Present',
+    investmentMetric: '100+ Large-Scale Murals',
+    headline: 'An Open-Air Gallery Preserving Truth, Grief, and Rebirth',
+    heroImage: './images/mural-alley.jpg',
+    images: [
+      {
+        src: './images/mural-alley.jpg',
+        caption: 'Real Photograph (User Archive): Iconic Afro-Colombian portrait mural & butterflies in Comuna 13',
+        credit: 'Real Site Photograph · Comuna 13 Medellin'
+      },
+      {
+        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Grafitti_-_Plaza_-_Comuna_13_-_Medell%C3%ADn_-_Colombia_2024.jpg/1280px-Grafitti_-_Plaza_-_Comuna_13_-_Medell%C3%ADn_-_Colombia_2024.jpg',
+        fallbackSrc: './images/history-memory.jpg',
+        caption: 'Wikimedia Commons (2024): Street art murals surrounding the main plaza of Comuna 13',
+        credit: 'Wikimedia Commons · Jbribeiro1 (CC BY-SA 4.0)'
+      },
+      {
+        src: './images/history-memory.jpg',
+        caption: 'Twilight Visualization: White peace dove mural honoring the 2002 white-sheet marches',
+        credit: 'Documentary Visualization'
+      }
+    ],
+    youtubeId: 'x9LZa9HvzGI',
+    youtubeTitle: 'Graffitour Casa Kolacho — Official Comuna 13 Documentary Clip',
+    extraVideos: [
+      { id: 'x9LZa9HvzGI', label: 'Graffitour Official Clip' },
+      { id: 'mJswEKDqco4', label: 'Murals & Memory Story' }
+    ],
+    lat: 6.2458,
+    lng: -75.6192,
+    streetViewQuery: 'Graffitour+Comuna+13,Medellin,Colombia',
+    audioText:
+      'Exhibit 2: The Graffitour Murals. Painted by local artists, these walls preserve historical memory after the 2002 military operations, honoring mothers searching for the disappeared and celebrating peaceful resistance.',
+    visualChips: [
+      '100+ Curated Murals',
+      'Honors Mothers of 2002',
+      'White Cloth Peace Symbol',
+      'Painted by Local Crews'
+    ],
+    shortPoints: [
+      'Painted by local crews (Chota 13, YesGraff, Perrograff) as living historical documentation.',
+      'Local guides contextualize every symbol so visitors understand the community’s resilience.',
+      'Investment Need: Mural conservation grants & direct artist royalty licensing.'
+    ],
     stats: [
-      { label: 'Core Themes', value: 'Peace, Maternal Resilience, Biodiversity, Hip-Hop' },
-      { label: 'Economic Role', value: 'Primary magnet for 1.1M–1.6M annual visitors (est.)' },
-      { label: 'Artist Benefit', value: 'Direct commissions, gallery sales & global licensing' }
+      { label: 'Visual Themes', value: 'Peace, Memory & Renewal' },
+      { label: 'Annual Visitors', value: '1.1M – 1.6M (Est.)' },
+      { label: 'Artist Benefit', value: 'Direct Commissions & IP' }
     ]
   },
   {
     id: 'kolacho',
     number: 3,
-    name: 'Casa Kolacho Hip-Hop Cultural Center',
+    name: 'Casa Kolacho Hip-Hop Center',
     category: 'Youth Leadership & Education',
+    artifactType: 'hiphop',
+    artifactTitle: '3D Exhibit: Hip-Hop Turntable, Vinyl & Stage Microphone',
     coordinates: [6.2, 5.8, 2.5],
     color: '#06b6d4',
-    year: 'Founded 2013 (Honoring Hector "Kolacho" Pacheco)',
-    investmentMetric: 'Thousands of Youth Trained in 4 Hip-Hop Pillars',
+    year: 'Founded 2013',
+    investmentMetric: '4 Elements of Hip-Hop School',
     headline: 'Where Beats, Rhymes, and Breakdance Replaced Armed Recruitment',
-    description:
-      'After hip-hop activist Hector Pacheco (“Kolacho”) was killed in August 2009, fellow artists Jeihhco, Perrograff, and local youth founded Casa Kolacho in 2013. They created the original Graffitour to fund free community schooling in the four elements of hip-hop: rap, DJing, breakdance, and graffiti.',
-    artAndCommunityRole:
-      'Casa Kolacho proved that culture saves lives. By offering young people a recording studio, mentorship, and dignified jobs as bilingual cultural guides, it dismantled the recruitment pipeline of illegal armed groups.',
-    investmentAngle:
-      'Direct social-impact sponsorships for music production studios, English-language scholarships for local youth guides, and international cultural exchange tours.',
+    heroImage: './images/kolacho-hiphop.jpg',
+    images: [
+      {
+        src: './images/kolacho-hiphop.jpg',
+        caption: 'Outdoor breakdance and hip-hop performance stage in Comuna 13',
+        credit: 'Documentary Visualization · Casa Kolacho Stage'
+      },
+      {
+        src: './images/mural-alley.jpg',
+        caption: 'Real Photograph (User Archive): Cultural corridor where Casa Kolacho leads guided tours',
+        credit: 'Real Site Photograph · Comuna 13 Medellin'
+      },
+      {
+        src: './images/viewpoint-plaza.jpg',
+        caption: 'Real Photograph (User Archive): Live street musicians and dancers performing on the hillside',
+        credit: 'Real Site Photograph · Comuna 13 Medellin'
+      }
+    ],
+    youtubeId: 'mLO01KvzjA0',
+    youtubeTitle: 'Casa Kolacho: Hip-Hop as a Lifestyle & Peace Movement in Comuna 13',
+    extraVideos: [
+      { id: 'mLO01KvzjA0', label: 'Casa Kolacho Hip-Hop' },
+      { id: 'x9LZa9HvzGI', label: 'Casa Kolacho Graffitour' }
+    ],
+    lat: 6.2491,
+    lng: -75.6152,
+    streetViewQuery: 'Casa+Kolacho,San+Javier,Medellin,Colombia',
+    audioText:
+      'Exhibit 3: Casa Kolacho. Founded in 2013 in tribute to murdered hip-hop activist Hector Pacheco, Casa Kolacho uses rap, DJing, breakdance, and graffiti to educate youth and prevent armed recruitment.',
+    visualChips: [
+      'Honors Hector "Kolacho"',
+      'Rap · DJ · Dance · Graffiti',
+      'Free Youth Art School',
+      'Pioneered the Graffitour'
+    ],
+    shortPoints: [
+      'Founded in 2013 by Jeihhco, Perrograff, and youth leaders in memory of Hector "Kolacho" Pacheco.',
+      'Provides free artistic education and dignified income for young guides and performers.',
+      'Investment Need: Recording studio sponsorships & bilingual youth scholarships.'
+    ],
     stats: [
-      { label: 'Pedagogical Model', value: 'Rap, DJing, Breakdance & Graffiti Workshops' },
-      { label: 'Founding Milestone', value: 'Created the original community-led Graffitour' },
-      { label: 'Social Outcome', value: 'Youth employment & dramatic reduction in recruitment' }
+      { label: 'Core Pillars', value: 'Rap, DJing, Dance, Graffiti' },
+      { label: 'Milestone', value: 'Created Original Graffitour' },
+      { label: 'Social Impact', value: 'Youth Jobs & Peacebuilding' }
     ]
   },
   {
     id: 'viewpoints',
     number: 4,
     name: 'Upper Hillside Panoramic Viewpoints',
-    category: 'Panoramic Public Space & Performance',
+    category: 'Public Space & Street Performance',
+    artifactType: 'viewpoint',
+    artifactTitle: '3D Exhibit: Panoramic Balcony & Valley Observation Deck',
     coordinates: [0.5, 11.8, -3.5],
     color: '#f59e0b',
-    year: 'Expanded 2012 – 2024',
-    investmentMetric: '270° Panoramic View of the Aburra Valley',
-    headline: 'Elevated Balconies Hosting Breakdance Battles & Valley Vistas',
-    description:
-      'At the top of the sixth escalator section, wooden and concrete viewing decks look out across the entire Aburra Valley and the skyscrapers of downtown Medellin. Street dancers and freestyle rappers gather here daily, transforming a former tactical vantage point of urban conflict into a stage of celebration.',
-    artAndCommunityRole:
-      'The upper viewpoints symbolize the reversal of urban stigma: visitors now climb to the top of the hillside to look at Medellin from Comuna 13’s perspective, listening to resident performers share their personal stories.',
-    investmentAngle:
-      'High potential for sustainable rooftop cultural cafes, solar-shaded amphitheaters, and decentralized upper-neighborhood trails that spread foot traffic away from congested lower alleys.',
+    year: 'Expanded 2012 – 2025',
+    investmentMetric: '270° Aburra Valley Vista',
+    headline: 'Elevated Balconies Hosting Breakdance Shows, Food Stalls & Valley Views',
+    heroImage: './images/viewpoint-plaza.jpg',
+    images: [
+      {
+        src: './images/viewpoint-plaza.jpg',
+        caption: 'Real Photograph (User Archive): Upper panoramic viewpoint plaza with food stalls, music, and valley views',
+        credit: 'Real Site Photograph · Comuna 13 Medellin'
+      },
+      {
+        src: './images/escalators-mural.jpg',
+        caption: 'Real Photograph (User Archive): Ascending the final escalator section toward the upper balcony',
+        credit: 'Real Site Photograph · Comuna 13 Medellin'
+      },
+      {
+        src: './images/history-memory.jpg',
+        caption: 'Twilight view across the illuminated hillside of San Javier',
+        credit: 'Documentary Visualization'
+      }
+    ],
+    youtubeId: 'sbpNIyM8JeI',
+    youtubeTitle: 'Upper Viewpoints, Street Performers & Real Atmosphere in Comuna 13 (4K)',
+    extraVideos: [
+      { id: 'sbpNIyM8JeI', label: 'Viewpoints & Performers 4K' },
+      { id: 'BvF5IqthS5M', label: 'Hillside Walk 4K' }
+    ],
+    lat: 6.2448,
+    lng: -75.6203,
+    streetViewQuery: 'Comuna+13+Viewpoint,Medellin,Colombia',
+    audioText:
+      'Exhibit 4: The Upper Hillside Viewpoints. Looking out across a 270-degree panorama of the Aburra Valley, these decks host live breakdance battles, acoustic music, and local gastronomy stalls.',
+    visualChips: [
+      '270° Medellin Skyline View',
+      'Daily Breakdance Cyphers',
+      'Artisan Food Terraces',
+      'Top of 6th Escalator'
+    ],
+    shortPoints: [
+      'Reverses urban stigma: visitors climb to admire Medellin from Comuna 13’s perspective.',
+      'High visitor density on narrow stairs highlights the need for expanded public terraces.',
+      'Investment Need: Solar-shaded amphitheaters & decentralized upper-hillside trails.'
+    ],
     stats: [
-      { label: 'Elevation View', value: '270° vista across San Javier & Aburra Valley' },
-      { label: 'Daily Activations', value: 'Live breakdance shows & acoustic sessions' },
-      { label: 'Infrastructure Need', value: 'Expanded seating, shade & accessible ramps' }
+      { label: 'Panorama', value: '270° Aburra Valley View' },
+      { label: 'Visitor Rating', value: '4.7 / 5.0 (40k+ Reviews)' },
+      { label: 'Priority Need', value: 'Decentralized Walkways' }
     ]
   },
   {
     id: 'commerce',
     number: 5,
-    name: 'Local Gastronomy & Artisan Micro-Commerce',
+    name: 'Local Gastronomy & Micro-Commerce',
     category: 'Grassroots Entrepreneurship',
+    artifactType: 'commerce',
+    artifactTitle: '3D Exhibit: Artisanal Mango Sorbet & Specialty Coffee Kiosk',
     coordinates: [-4.2, 8.8, -0.5],
     color: '#10b981',
-    year: '2,750+ Formal Businesses as of 2023',
-    investmentMetric: '2,750+ Registered Local Enterprises',
-    headline: 'From Living-Room Windows to Thriving Family Enterprises',
-    description:
-      'Along the narrow pathways, families have converted ground-floor living rooms and balconies into vibrant micro-businesses: famous artisanal green mango ice pops with lime and salt, specialty Antioquia coffee roasters, neon-lit screen-printing boutiques, and craft chocolate bars.',
-    artAndCommunityRole:
-      'Micro-commerce ensures that tourism revenue circulates inside resident households rather than leaking exclusively to external tour agencies.',
-    investmentAngle:
-      'Micro-credit facilities, digital payment & e-commerce onboarding so artisans can ship merchandise globally, culinary incubator kitchens, and fair-trade certification.',
+    year: '2,750+ Formal Businesses',
+    investmentMetric: '2,750+ Registered Enterprises',
+    headline: 'Family Homes Transformed into Cafes, Mango Sorbet Stalls & Art Boutiques',
+    heroImage: './images/viewpoint-plaza.jpg',
+    images: [
+      {
+        src: './images/viewpoint-plaza.jpg',
+        caption: 'Real Photograph (User Archive): Local food vendor grilling and serving visitors at the upper plaza',
+        credit: 'Real Site Photograph · Comuna 13 Medellin'
+      },
+      {
+        src: './images/mural-alley.jpg',
+        caption: 'Real Photograph (User Archive): Family micro-enterprises and galleries lining the mural corridor',
+        credit: 'Real Site Photograph · Comuna 13 Medellin'
+      },
+      {
+        src: 'https://upload.wikimedia.org/wikipedia/commons/1/12/Comuna_13_de_Medellin.jpg',
+        fallbackSrc: './images/escalators-mural.jpg',
+        caption: 'Wikimedia Commons: Residential and commercial hillside architecture in Comuna 13',
+        credit: 'Wikimedia Commons · CC BY-SA'
+      }
+    ],
+    youtubeId: 'BvF5IqthS5M',
+    youtubeTitle: 'Exploring Local Food, Coffee, Galleries & Street Life in Comuna 13 (4K)',
+    extraVideos: [
+      { id: 'BvF5IqthS5M', label: 'Local Commerce & Food 4K' },
+      { id: 'sbpNIyM8JeI', label: 'Artisan Alleyways 4K' }
+    ],
+    lat: 6.2455,
+    lng: -75.6195,
+    streetViewQuery: 'Comuna+13+San+Javier,Medellin,Colombia',
+    audioText:
+      'Exhibit 5: Local Gastronomy and Micro-Commerce. According to the Medellin Chamber of Commerce, over 2,750 formal businesses operate in Comuna 13, from artisanal green mango sorbet stands to specialty coffee bars and galleries.',
+    visualChips: [
+      '2,750+ Registered Businesses',
+      'Green Mango Ice Pops',
+      'Antioquia Specialty Coffee',
+      'Family-Owned Galleries'
+    ],
+    shortPoints: [
+      'Over 2,750 formal businesses registered by 2023 (Medellin Chamber of Commerce).',
+      'Direct household income keeps tourism value inside the community.',
+      'Investment Need: Culinary incubators, cashless payments & global e-commerce.'
+    ],
     stats: [
-      { label: 'Formal Businesses', value: '2,750+ registered (Medellin Chamber of Commerce, 2023)' },
-      { label: 'Signature Products', value: 'Artisanal mango sorbets, specialty coffee, street apparel' },
-      { label: 'Growth Opportunity', value: 'Global e-commerce & supply-chain formalization' }
+      { label: 'Formal Businesses', value: '2,750+ (Chamber of Commerce)' },
+      { label: 'Monthly Visitors', value: '90,000 – 136,000 (Est.)' },
+      { label: 'Growth Lever', value: 'E-Commerce & Incubators' }
     ]
   },
   {
     id: 'metrocable',
     number: 6,
-    name: 'San Javier Metrocable & Integrated Transit',
-    category: 'Sustainable Regional Connectivity',
+    name: 'San Javier Metrocable Connection',
+    category: 'Sustainable Aerial Transit',
+    artifactType: 'gondola',
+    artifactTitle: '3D Exhibit: Line J Aerial Metrocable Gondola Cabin',
     coordinates: [8.5, 9.5, -4.0],
     color: '#a855f7',
     year: 'Line J Inaugurated 2008',
-    investmentMetric: 'Direct Aerial Link to Medellin Metro System',
-    headline: 'Aerial Gondolas Bridging Hillside Neighborhoods with the Valley Floor',
-    description:
-      'Connecting San Javier Metro Station with high-altitude neighborhoods like Juan XXIII and La Aurora, the Line J Metrocable was a pioneering milestone in Medellin’s social urbanism strategy, slashing commute times and integrating hillside communities into the metropolitan labor market.',
-    artAndCommunityRole:
-      'Seen gliding above the colorful rooftops, the cable cars reinforce the message that public transit can be clean, low-carbon, and socially inclusive.',
-    investmentAngle:
-      'Last-mile electric micro-shuttle loops and accessible transit connectors for elderly residents and families with disabilities whose streets are currently congested by tourist crowds.',
+    investmentMetric: 'Zero-Emission Aerial Transit',
+    headline: 'Aerial Gondolas Bridging High-Altitude Neighborhoods with the Metro',
+    heroImage: './images/metrocable-sanjavier.jpg',
+    images: [
+      {
+        src: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Medellin_Comuna_13.jpg',
+        fallbackSrc: './images/metrocable-sanjavier.jpg',
+        caption: 'Wikimedia Commons: Aerial Metrocable Line J crossing the hillside of Comuna 13',
+        credit: 'Wikimedia Commons · CC BY-SA'
+      },
+      {
+        src: './images/metrocable-sanjavier.jpg',
+        caption: 'Aerial perspective of the gondola line and orange escalator corridor',
+        credit: '3D Architectural Visualization'
+      },
+      {
+        src: './images/escalators-mural.jpg',
+        caption: 'Real Photograph (User Archive): Integrated hillside pedestrian and escalator network',
+        credit: 'Real Site Photograph · Comuna 13 Medellin'
+      }
+    ],
+    youtubeId: 'SNZIobJtcik',
+    youtubeTitle: 'San Javier Metro & Metrocable Connection to Comuna 13',
+    extraVideos: [
+      { id: 'SNZIobJtcik', label: 'Transit & Escalator Link' },
+      { id: 'BvF5IqthS5M', label: 'Neighborhood Overview' }
+    ],
+    lat: 6.2559,
+    lng: -75.6136,
+    streetViewQuery: 'San+Javier+Metro+Station,Medellin,Colombia',
+    audioText:
+      'Exhibit 6: The San Javier Metrocable Line J. Inaugurated in 2008, this electric aerial gondola system connects steep hillside neighborhoods directly to the Medellin Metro network.',
+    visualChips: [
+      'Metro Line B + Line J Link',
+      '100% Electric Gondolas',
+      'Slashed Commute Times',
+      'Needs Last-Mile Shuttles'
+    ],
+    shortPoints: [
+      'Pioneered Medellin’s social urbanism by linking steep hillsides to the metropolitan transit grid.',
+      'Provides clean, zero-emission daily mobility for thousands of workers and students.',
+      'Investment Need: Accessible electric micro-shuttles for elderly and disabled residents.'
+    ],
     stats: [
-      { label: 'Transit Integration', value: 'Seamless transfer between Metro Line B & Line J Gondolas' },
-      { label: 'Environmental Impact', value: 'Zero-local-emission electric aerial mobility' },
-      { label: 'Next Phase Need', value: 'Accessible last-mile micro-transit for hillside residents' }
+      { label: 'Transit Hub', value: 'San Javier Station (Line B/J)' },
+      { label: 'Propulsion', value: 'Zero-Emission Electric' },
+      { label: 'Next Upgrade', value: 'Accessible Micro-Shuttles' }
     ]
   }
 ];
@@ -310,11 +554,10 @@ export const VERIFIED_METRICS = [
     numericValue: 384,
     suffix: 'm',
     prefix: '',
-    label: 'Outdoor Electric Escalators',
-    sublabel: '6 sections inaugurated Dec 26, 2011; cut 35-min climb to 6 min',
-    status: 'Verified Fact',
-    sourceName: 'Schindler Group / Elevator World',
-    sourceUrl: 'https://group.schindler.com/en/media/stories/urban-mobility-transforms-medellin-neighborhood.html'
+    label: 'Outdoor Escalators (6 Sections)',
+    sublabel: 'Cut 35-min climb (28 stories) to 6 min',
+    status: 'Verified · 2011',
+    color: '#ff5a1f'
   },
   {
     id: 'local-businesses',
@@ -322,21 +565,19 @@ export const VERIFIED_METRICS = [
     suffix: '+',
     prefix: '',
     label: 'Registered Local Businesses',
-    sublabel: 'Formally registered enterprises in Comuna 13 as of 2023',
-    status: 'Verified Fact',
-    sourceName: 'Medellin Chamber of Commerce / Lazo Magazine',
-    sourceUrl: 'https://lazomagazine.com/why-locals-are-leaving-medellins-most-popular-tourist-hub/'
+    sublabel: 'Medellin Chamber of Commerce (2023)',
+    status: 'Verified · Chamber',
+    color: '#10b981'
   },
   {
     id: 'monthly-visitors',
     numericValue: 136,
     suffix: 'k',
     prefix: '90k–',
-    label: 'Monthly Visitors (Peak Range)',
-    sublabel: 'Approx. 1.1M to 1.6M annual visitors to the cultural corridor',
+    label: 'Monthly Visitors',
+    sublabel: '1.1M – 1.6M visitors per year',
     status: 'Estimated Range',
-    sourceName: 'Lazo Magazine / CAS Trips Field Reports (2024–2026)',
-    sourceUrl: 'https://www.castrips.org/comuna-13-in-medellin/'
+    color: '#ec4899'
   },
   {
     id: 'escalator-cost',
@@ -344,22 +585,20 @@ export const VERIFIED_METRICS = [
     suffix: 'M',
     prefix: '$',
     decimals: 1,
-    label: 'Initial Escalator Investment (USD)',
-    sublabel: 'Directly serving 12,000+ immediate hillside residents',
-    status: 'Verified Fact',
-    sourceName: 'Elevator World / URBANET',
-    sourceUrl: 'https://elevatorworld.com/article/medellins-outdoor-escalator/'
+    label: 'Escalator Investment (USD)',
+    sublabel: 'Serving 12,000+ immediate residents',
+    status: 'Verified · Municipal',
+    color: '#06b6d4'
   },
   {
     id: 'population',
     numericValue: 160,
     suffix: 'k',
     prefix: '~',
-    label: 'Comuna 13 Total Population',
-    sublabel: 'Residents across San Javier’s hillside neighborhoods',
-    status: 'Verified Estimate',
-    sourceName: 'DANE / Municipal Census Overview',
-    sourceUrl: 'https://en.wikipedia.org/wiki/Comuna_13,_Medell%C3%ADn'
+    label: 'Comuna 13 Population',
+    sublabel: 'San Javier hillside residents',
+    status: 'Verified · Census',
+    color: '#f59e0b'
   },
   {
     id: 'city-tourism',
@@ -367,106 +606,105 @@ export const VERIFIED_METRICS = [
     suffix: 'B',
     prefix: '$',
     decimals: 2,
-    label: 'Medellin Annual Tourism Impact (USD)',
-    sublabel: '1.2M foreign tourists in 2025 growing at ~10% YoY',
-    status: 'Verified Fact',
-    sourceName: 'Medellin Dept. of Tourism & Entertainment / EFE (2025)',
-    sourceUrl: 'https://efecomunica.efe.com/en/medellin-welcomed-1-2-million-foreign-tourists-in-2025-highlights-economic-impact/'
+    label: 'Medellin Tourism Impact (USD)',
+    sublabel: '1.2M foreign visitors in 2025 (+10% YoY)',
+    status: 'Verified · 2025',
+    color: '#a855f7'
   }
 ];
 
 export const GROWTH_TRAJECTORY = [
   {
     year: '2011',
-    milestone: 'Escalators Inaugurated',
+    milestone: 'Escalators Open',
     monthlyVisitorsK: 2,
     formalBusinesses: 320,
-    note: 'Dec 2011: 384m escalators open for 12,000 residents'
+    note: 'Dec 2011: 384m escalators inaugurated'
   },
   {
     year: '2014',
-    milestone: 'Casa Kolacho & First Graffitours',
+    milestone: 'Casa Kolacho',
     monthlyVisitorsK: 12,
     formalBusinesses: 580,
-    note: 'Hip-hop youth collectives formalize guided mural tours'
+    note: 'First community-led Graffitours'
   },
   {
     year: '2018',
-    milestone: 'International Cultural Recognition',
+    milestone: 'Global Recognition',
     monthlyVisitorsK: 45,
     formalBusinesses: 1250,
-    note: 'Rapid growth of family cafes, galleries, and artisan stalls'
+    note: 'Family cafes & galleries multiply'
   },
   {
     year: '2023',
-    milestone: 'Post-Pandemic Boom',
+    milestone: '2,750+ Businesses',
     monthlyVisitorsK: 110,
     formalBusinesses: 2750,
-    note: '2,750+ formal businesses registered (Chamber of Commerce)'
+    note: 'Chamber of Commerce milestone'
   },
   {
     year: '2026',
-    milestone: 'Current Capacity Inflection Point',
+    milestone: 'Capacity Peak',
     monthlyVisitorsK: 136,
     formalBusinesses: 3100,
-    note: '90k–136k monthly visitors; urgent need for crowd management & infrastructure'
+    note: 'Urgent infrastructure & flow need'
   },
   {
-    year: '2035 (Projected)',
-    milestone: 'With Responsible Investment',
+    year: '2035 Goal',
+    milestone: 'Sustainable Model',
     monthlyVisitorsK: 150,
     formalBusinesses: 4500,
-    note: 'Decentralized trails, protected resident housing & global creative exports'
+    note: 'Decentralized routes & local ownership'
   }
 ];
 
 export const DISTRICT_COMPARISON = [
   {
     district: 'Comuna 13 (San Javier)',
-    character: 'Community-Led Open-Air Art & Social Urbanism Corridor',
-    socialImpactROI: 'Very High — Direct household income for 2,750+ local micro-businesses & youth collectives',
-    culturalAuthenticity: 'High — Living historical memory, hip-hop pedagogy & resident-painted murals',
-    currentChallenge: 'Overcrowded narrow stairs (90k–136k visitors/mo), blocked resident taxi access & rising rents',
-    fundingVerdict: 'TOP PRIORITY FOR PUBLIC & IMPACT FUNDING'
+    character: 'Community Open-Air Art & Social Urbanism',
+    socialImpactROI: 'VERY HIGH · Direct income for 2,750+ family businesses & youth hubs',
+    culturalAuthenticity: 'HIGH · Living memory, hip-hop school & resident murals',
+    currentChallenge: 'Overcrowded stairs (90k–136k/mo) & blocked resident taxi access',
+    fundingVerdict: 'TOP PRIORITY FOR SUPPORT'
   },
   {
     district: 'El Poblado (Commune 14)',
-    character: 'Upscale Commercial, Hotel & Nightlife District (30 min away via Metro)',
-    socialImpactROI: 'Low-Moderate — Dominated by large hospitality chains and foreign capital',
-    culturalAuthenticity: 'Low — Commercialized dining and boutique retail with minimal historical memory focus',
-    currentChallenge: 'High real-estate saturation, gentrification, and commercial homogenization',
-    fundingVerdict: 'Self-financed by private commercial capital'
+    character: 'Upscale Commercial & Hotel District',
+    socialImpactROI: 'LOW · Dominated by large hotel chains & external capital',
+    culturalAuthenticity: 'LOW · Commercial dining & nightlife district',
+    currentChallenge: 'High real-estate saturation & gentrification',
+    fundingVerdict: 'Self-Financed Commercial'
   },
   {
-    district: 'Plaza Botero & Downtown (La Candelaria)',
-    character: 'Traditional Monumental Museum & Civic Center',
-    socialImpactROI: 'Moderate — Institutional museum funding (Museum of Antioquia) + informal street trade',
-    culturalAuthenticity: 'High — Iconic bronze sculptures and heritage architecture, but institutional rather than grassroots',
-    currentChallenge: 'Higher petty-theft rate (12 per 100k visitors vs. 0.5 in Comuna 13’s guided corridor)',
-    fundingVerdict: 'Supported by municipal heritage budgets'
+    district: 'Plaza Botero (Downtown)',
+    character: 'Institutional Museum & Civic Plaza',
+    socialImpactROI: 'MODERATE · Municipal museum budget + street trade',
+    culturalAuthenticity: 'HIGH · Heritage bronze sculptures (institutional)',
+    currentChallenge: 'Higher petty theft (12 vs 0.5 per 100k in C13 corridor)',
+    fundingVerdict: 'Covered by City Heritage'
   }
 ];
 
 export const SCENARIO_2035 = {
   responsible: {
-    title: 'Scenario A: Responsible Community-Backed Investment (Recommended)',
+    title: 'Scenario A · Responsible Public & Impact Investment (Recommended)',
     conditionalStatement:
-      'If public agencies and impact investors fund decentralized infrastructure and local cultural collectives today, by 2035 Comuna 13 will have become Latin America’s benchmark for inclusive urban regeneration.',
+      '“If we fund community infrastructure today, by 2035 Comuna 13 will have decentralized visitor flows and protected local ownership.”',
     outcomes: [
-      'By 2035, secondary pedestrian loops and accessible micro-transit will have eliminated bottlenecks on the main escalators, restoring emergency and taxi access for elderly and disabled residents.',
-      'Community Land Trusts and cooperative commercial leases will have protected local families from displacement while keeping over 75% of tourism revenue inside San Javier.',
-      'Youth-led creative studios (like Casa Kolacho) will have expanded from local walking tours into global digital music, animation, and ethical streetwear exports.',
-      'Continuous safety monitoring and social programs will have safeguarded neighborhood peace without militarization.'
+      'By 2035, parallel walkways will have restored taxi and emergency access for disabled residents.',
+      'Community Land Trusts will have kept 75%+ of tourism revenue inside local family hands.',
+      'Casa Kolacho & youth studios will have expanded into global digital music and art exports.',
+      'Continuous safety monitoring will have preserved neighborhood peace without militarization.'
     ]
   },
   unmanaged: {
-    title: 'Scenario B: Unmanaged Mass Tourism & Under-Investment (Risk Path)',
+    title: 'Scenario B · Unmanaged Mass Tourism & Under-Investment (Risk Path)',
     conditionalStatement:
-      'Conversely, if authorities neglect public infrastructure and allow unregulated external commercialization, by 2035 the neighborhood will have lost the authentic community spirit that made it resilient.',
+      '“Conversely, if left unregulated, by 2035 commercialization will have displaced the community that built this resilience.”',
     outcomes: [
-      'By 2035, unchecked rent inflation will have displaced long-term residents and local artists, turning a living neighborhood into a superficial theme park.',
-      'Overwhelmed escalators and clogged alleys will have degraded daily quality of life, prompting more responsible travel organizations to boycott the area.',
-      'Outside tour operators and souvenir chains will have captured the majority of visitor spending, leaving residents with noise and waste.'
+      'By 2035, rent inflation will have displaced long-term families and local muralists.',
+      'Overwhelmed escalators will have forced responsible travel agencies to boycott the area.',
+      'External tour operators will have captured the profits while leaving noise and congestion.'
     ]
   }
 };
@@ -474,193 +712,173 @@ export const SCENARIO_2035 = {
 export const INVESTMENT_OPPORTUNITIES = [
   {
     id: 'tourism',
-    title: '1. Certified Community-Led Cultural Tourism',
-    category: 'Sustainable Experiences',
-    ticketRange: '$25k – $250k USD',
-    impactMetric: '80%+ revenue retained by local guides & artists',
-    description:
-      'Co-invest with established local collectives (such as Casa Kolacho) to develop small-group,pre-booked timed audio-visual tours, expanded upper-hillside memory routes, and multilingual guide certification.',
-    whyItWorks:
-      'Moves away from chaotic 50-person megaphones toward higher-value, lower-crowding cultural immersion.'
+    title: '1. Community-Led Cultural Tourism',
+    category: 'Sustainable Tours',
+    ticketRange: '$25k – $250k',
+    impactMetric: '80%+ revenue to local guides',
+    image: './images/mural-alley.jpg',
+    points: ['Pre-booked small groups', 'Upper-hillside memory routes', 'Multilingual youth guides']
   },
   {
     id: 'gastronomy',
-    title: '2. Culinary Incubators & Specialty Coffee Roasteries',
-    category: 'Gastronomy & Agribusiness',
-    ticketRange: '$15k – $150k USD',
-    impactMetric: '3x margin increase for family food stalls',
-    description:
-      'Upgrade family-run street food stalls (famous for green mango sorbets, empanadas, and traditional sweets) and Antioquia specialty coffee bars with commercial kitchens, rooftop dining terraces, and export packaging.',
-    whyItWorks:
-      'Food and beverage is the #1 spontaneous purchase by the 90,000–136,000 monthly visitors.'
+    title: '2. Gastronomy & Specialty Coffee',
+    category: 'Culinary Incubators',
+    ticketRange: '$15k – $150k',
+    impactMetric: '3x margin for family stalls',
+    image: './images/viewpoint-plaza.jpg',
+    points: ['Artisanal mango sorbet hubs', 'Antioquia coffee roasteries', 'Rooftop dining terraces']
   },
   {
     id: 'lodging',
-    title: '3. Community Homestays & Boutique Eco-Lodging',
-    category: 'Responsible Hospitality',
-    ticketRange: '$50k – $400k USD',
-    impactMetric: 'Increases average visitor stay from 3 hours to 2+ nights',
-    description:
-      'Partner with homeowner families to renovate upper-floor apartments into certified cultural homestays and artist residency lofts with acoustic insulation and solar water heating.',
-    whyItWorks:
-      'Allows resident homeowners to build generational equity without selling their houses to external speculators.'
+    title: '3. Family Homestays & Eco-Lofts',
+    category: 'Hospitality',
+    ticketRange: '$50k – $400k',
+    impactMetric: '3-hr visit → 2+ night stay',
+    image: './images/history-memory.jpg',
+    points: ['Joint-venture with homeowners', 'Artist residency lofts', 'Zero resident displacement']
   },
   {
     id: 'art-culture',
-    title: '4. Art Galleries, Music Studios & IP Licensing',
-    category: 'Creative Economy',
-    ticketRange: '$20k – $200k USD',
-    impactMetric: 'Decouples artist income from physical crowd volume',
-    description:
-      'Fund professional recording studios, screen-printing workshops, fine-art print shipping hubs, and global brand licensing for Comuna 13 muralists and hip-hop producers.',
-    whyItWorks:
-      'Enables artists to monetize their intellectual property globally through e-commerce, documentaries, and design commissions.'
+    title: '4. Art Galleries & Music Studios',
+    category: 'Creative IP',
+    ticketRange: '$20k – $200k',
+    impactMetric: 'Global licensing royalties',
+    image: './images/kolacho-hiphop.jpg',
+    points: ['Hip-hop recording studios', 'Fine-art print exports', 'Global brand collaborations']
   },
   {
     id: 'entrepreneurship',
-    title: '5. Youth Tech & Creative Micro-Enterprise Labs',
-    category: 'Local Entrepreneurship',
-    ticketRange: '$30k – $300k USD',
-    impactMetric: 'Trains 500+ youths annually in digital & creative skills',
-    description:
-      'Establish neighborhood co-working and digital fabrication labs where young residents learn 3D design, web development, digital marketing, and financial management for the 2,750+ local businesses.',
-    whyItWorks:
-      'Builds long-term career pathways beyond seasonal tourism jobs.'
+    title: '5. Youth Tech & Creative Labs',
+    category: 'Micro-Enterprise',
+    ticketRange: '$30k – $300k',
+    impactMetric: '500+ youths trained/year',
+    image: './images/escalators-mural.jpg',
+    points: ['Digital design & coding labs', 'E-commerce for 2,750+ shops', 'Cashless payment tools']
   },
   {
     id: 'infrastructure',
-    title: '6. Public Infrastructure & Accessible Mobility Grants',
-    category: 'Public-Private Social Impact',
-    ticketRange: '$100k – $2M+ USD (Municipal / ESG Grants)',
-    impactMetric: 'Restores emergency/disability access for 12,000+ residents',
-    description:
-      'Co-fund secondary hillside walkways, waste-management stations, acoustic buffers, and dedicated mobility access lanes so families with disabilities and emergency vehicles are never blocked by tour groups.',
-    whyItWorks:
-      'Directly resolves the #1 friction point reported by residents and sustainable travel organizations.'
+    title: '6. Public Mobility & Access Grants',
+    category: 'Social Urbanism',
+    ticketRange: '$100k – $2M+',
+    impactMetric: 'Restores emergency access',
+    image: './images/metrocable-sanjavier.jpg',
+    points: ['Parallel resident stairs', 'Disability micro-shuttles', 'Solar shade & waste hubs']
   }
 ];
 
 export const RISKS_AND_MITIGATION = [
   {
-    risk: 'Overcrowding & Strained Escalator / Emergency Access',
-    severity: 'High (90k–136k visitors/month on narrow residential stairs)',
-    evidence:
-      'Escalators built for 12,000 residents now carry massive tourist crowds; narrow streets get clogged, preventing taxis or ambulances from reaching residents with disabilities (CAS Trips, 2024).',
-    mitigation:
-      'Implement timed digital visitor slots, fund parallel resident-only mobility lanes, and expand tour routes into upper and adjacent cultural corridors.'
+    risk: 'Escalator Overcrowding & Blocked Resident Access',
+    severity: 'High (90k–136k visitors/mo)',
+    evidence: 'Escalators built for 12,000 residents are overwhelmed; clogged streets block taxis for disabled families.',
+    mitigation: 'Timed digital entry slots + parallel resident-only mobility lanes + upper-corridor trails.'
   },
   {
-    risk: 'Gentrification & Displacement of Long-Term Residents',
-    severity: 'High (Rising commercial rents along the main corridor)',
-    evidence:
-      'As commercial demand surges (2,750+ businesses registered by 2023), property inflation pressures low-income renters and shifts houses from residential to purely commercial use (Lazo Magazine, 2024).',
-    mitigation:
-      'Structure investments through Community Land Trusts, joint-venture equity with resident homeowners, and municipal property-tax protections for long-term families.'
+    risk: 'Gentrification & Rent Inflation',
+    severity: 'High (Commercial pressure)',
+    evidence: 'Surge to 2,750+ businesses raises rents and pressures long-term residential tenants.',
+    mitigation: 'Community Land Trusts + homeowner joint-ventures + municipal tax protection for locals.'
   },
   {
-    risk: 'Cultural Commodification & External Value Extraction',
-    severity: 'Medium-High (Outside agencies capturing tour margins)',
-    evidence:
-      'External operators sometimes bring large groups without hiring local guides or contextualizing the painful reality of the 2002 conflict, reducing memory to a photo backdrop (NYU CLACS / Brown Political Review).',
-    mitigation:
-      'Enforce a “Community Benefit Charter” requiring certified local guides from Comuna 13 and directing a 10% cultural preservation fee into neighborhood youth schools.'
+    risk: 'Cultural Commodification by Outside Agencies',
+    severity: 'Medium-High',
+    evidence: 'External operators run mass tours without local guides or respectful historical context.',
+    mitigation: 'Mandatory local guide certification + 10% community cultural preservation fee.'
   },
   {
-    risk: 'Security & Extortion Pressures on Small Vendors',
-    severity: 'Medium (Requires continuous institutional monitoring)',
-    evidence:
-      'While the tourist corridor has very low pickpocketing (0.5 per 100k visitors), rapid cash growth requires continuous public security monitoring and judicial protection against informal extortion (MDPI / WOLA).',
-    mitigation:
-      'Adopt cashless digital payment ecosystems, formal Chamber of Commerce banking, and transparent municipal safety oversight paired with youth employment.'
+    risk: 'Safety & Informal Extortion Risks',
+    severity: 'Medium',
+    evidence: 'Rapid cash economy requires continuous institutional security oversight.',
+    mitigation: 'Cashless digital payments + formal banking + continuous municipal safety monitoring.'
   }
 ];
 
 export const QA_PREP_CARDS = [
   {
-    question: '1. What made you choose Comuna 13 for this tour and investment analysis?',
-    rubricTarget: 'Uses narrative/perfect forms, attitude adverbs (undoubtedly, remarkably) & art vocabulary',
+    question: '1. What made you choose Comuna 13 for this tour?',
+    rubricTarget: 'Narrative/perfect forms + attitude adverbs + art vocabulary',
     modelAnswer:
-      'I chose Comuna 13 because it is arguably the most powerful example of grassroots urban resilience in Latin America. Rather than erasing its painful history after the 2002 operations, the community has used muralism, hip-hop, and storytelling to reclaim its identity. However, I also wanted to look beyond the postcard image and examine why this neighborhood still urgently needs public infrastructure funding and ethical investment.'
+      'I chose Comuna 13 because it is arguably Latin America’s most vivid example of grassroots transformation through art and hip-hop — yet it urgently needs infrastructure support to manage mass tourism.'
   },
   {
-    question: '2. How does Comuna 13 compare with other areas in Medellin like El Poblado or Plaza Botero?',
-    rubricTarget: 'Uses comparative structures (far more impactful than, whereas, in contrast to) & quantifiers',
+    question: '2. How does it compare with El Poblado or Plaza Botero?',
+    rubricTarget: 'Comparisons (whereas, far more impactful than) + quantifiers',
     modelAnswer:
-      'Unlike El Poblado, which is dominated by high-end commercial hotels and corporate capital, Comuna 13’s economy is driven by more than 2,750 grass-roots family businesses and youth collectives. And compared with Plaza Botero downtown, Comuna 13 offers a much more participatory, community-guided experience with significantly lower petty crime along the tour corridor — meaning every dollar invested here generates a far greater social impact.'
+      'Unlike El Poblado’s corporate hotel chains or Plaza Botero’s institutional museum model, Comuna 13 channels revenue directly into 2,750+ family micro-businesses and youth collectives.'
   },
   {
-    question: '3. What will have changed in Comuna 13 by 2035 if it receives responsible funding?',
-    rubricTarget: 'Uses future perfect (will have established, will have solved) & conditional consequences',
+    question: '3. What will have changed there by 2035 if funded?',
+    rubricTarget: 'Future perfect (will have decentralized, will have built)',
     modelAnswer:
-      'If the government and ethical investors fund community infrastructure today, by 2035 Comuna 13 will have decentralized its tourist routes across the hillside, solving the overcrowding that currently blocks resident access. Furthermore, local youth hubs like Casa Kolacho will have evolved into global creative studios exporting music, digital art, and sustainable cultural models without displacing local families.'
+      'If funded responsibly today, by 2035 Comuna 13 will have decentralized its visitor trails, restored resident disability access, and expanded Casa Kolacho into a global creative hub.'
   },
   {
-    question: '4. Why does Comuna 13 deserve more public and impact support than a traditional museum?',
-    rubricTarget: 'Weighs pros, cons & consequences; supports recommendation with verifiable evidence',
+    question: '4. Why does it deserve more support than a traditional museum?',
+    rubricTarget: 'Weighing pros, cons & consequences with evidence',
     modelAnswer:
-      'A traditional museum preserves art behind glass, whereas Comuna 13 is a living neighborhood of 160,000 people where art actively prevents youth violence and supports thousands of families. Because 90,000 to 136,000 visitors arrive every month, failing to invest in public walkways, waste management, and safety monitoring would put unbearable pressure on residents. Supporting Comuna 13 protects both a cultural masterpiece and a living community.'
+      'Because Comuna 13 is a living neighborhood of 160,000 residents where art actively prevents youth violence — and without public infrastructure upgrades, 136,000 monthly visitors will strain daily life.'
   }
 ];
 
 export const SOURCES = [
   {
-    title: 'Schindler Group — Urban Mobility Transforms Medellin Neighborhood (384m Outdoor Escalators)',
+    title: 'Schindler Group — Urban Mobility Transforms Medellin Neighborhood (384m Escalators)',
     url: 'https://group.schindler.com/en/media/stories/urban-mobility-transforms-medellin-neighborhood.html',
-    category: 'Infrastructure & Social Urbanism'
+    category: 'Infrastructure Report'
   },
   {
-    title: 'Elevator World — Medellin’s Outdoor Escalator (Inaugurated Dec 26, 2011 · US$6.7M · 28 Stories)',
+    title: 'Elevator World — Medellin’s Outdoor Escalator (Dec 26, 2011 · US$6.7M · 28 Stories)',
     url: 'https://elevatorworld.com/article/medellins-outdoor-escalator/',
-    category: 'Infrastructure & Cost Data'
+    category: 'Engineering & Cost Data'
   },
   {
-    title: 'URBANET — Escalating to Peace: How a Simple Investment Helped Change Comuna 13',
+    title: 'URBANET — Escalating to Peace: Social Infrastructure in Medellin',
     url: 'https://www.urbanet.info/colombia-medellin-social-infrastructure/',
-    category: 'Urban Planning & Social Impact'
+    category: 'Urban Planning Paper'
   },
   {
-    title: 'Truth Commission of Colombia — The Violent Machinery of Operation Orion (October 16–17, 2002)',
+    title: 'Truth Commission of Colombia — Operation Orion (October 16–17, 2002)',
     url: 'https://www.comisiondelaverdad.co/el-violento-engranaje-de-la-operacion-orion',
-    category: 'Historical Memory & Human Rights'
+    category: 'Historical Memory Report'
   },
   {
     title: 'WOLA (Adam Isacson) — Medellin’s Comuna 13, 22 Years After Operation Orion',
     url: 'https://adamisacson.com/medellins-comuna-13-22-years-after-operacion-orion/',
-    category: 'Historical Context & Security Analysis'
+    category: 'Human Rights & Security Study'
   },
   {
-    title: 'InSight Crime — International Court Condemns Colombia for 2002 Military Operation in Comuna 13',
+    title: 'InSight Crime — Inter-American Court Condemns Colombia for 2002 Operation Orion',
     url: 'https://insightcrime.org/news/brief/intl-court-condemns-colombia-bloody-2002-military-operation/',
-    category: 'Human Rights & Legal Rulings'
+    category: 'International Legal Ruling'
   },
   {
-    title: 'Lazo Magazine — Why Locals Are Leaving Medellin’s Most Popular Tourist Hub (2,750+ Businesses & 136k Monthly Visitors)',
+    title: 'Lazo Magazine — 2,750+ Registered Businesses & 136,000 Monthly Visitors in Comuna 13',
     url: 'https://lazomagazine.com/why-locals-are-leaving-medellins-most-popular-tourist-hub/',
-    category: 'Economic & Overcrowding Data'
+    category: 'Chamber of Commerce Data'
   },
   {
-    title: 'CAS Trips — Why We No Longer Visit Comuna 13 in Medellin (90,000 Monthly Visitors & Infrastructure Strain)',
+    title: 'CAS Trips — Overcrowding & Infrastructure Strain in Comuna 13 (90k Monthly Visitors)',
     url: 'https://www.castrips.org/comuna-13-in-medellin/',
-    category: 'Sustainable Tourism & Risk Analysis'
+    category: 'Sustainable Tourism Field Report'
   },
   {
-    title: 'Brown Political Review — Comuna 13: A Model for Balancing Tourism and Community Preservation',
+    title: 'Brown Political Review — Balancing Tourism and Community Preservation in Comuna 13',
     url: 'https://brownpoliticalreview.org/comuna-13-a-model-for-balancing-tourism-and-community-preservation/',
-    category: 'Economic Policy & Community Preservation'
+    category: 'Policy Analysis Paper'
   },
   {
-    title: 'NYU CLACS — Comuna 13: Exploring Empowerment Through Tourism',
+    title: 'NYU CLACS — Exploring Empowerment Through Transformation Tourism in Comuna 13',
     url: 'https://as.nyu.edu/research-centers/clacs/research/field-notes/comuna-13--exploring-empowerment-through-tourism.html',
     category: 'Academic Field Research'
   },
   {
-    title: 'EFE Comunica — Medellin Welcomed 1.2 Million Foreign Tourists in 2025 ($1.552B Economic Impact)',
+    title: 'EFE Comunica — Medellin Welcomed 1.2M Foreign Tourists in 2025 ($1.552B Impact)',
     url: 'https://efecomunica.efe.com/en/medellin-welcomed-1-2-million-foreign-tourists-in-2025-highlights-economic-impact/',
-    category: 'City-Wide Tourism Macroeconomics'
+    category: 'Municipal Tourism Statistics'
   },
   {
-    title: 'Wikipedia — Comuna 13, Medellin (San Javier Population & Geographic Overview)',
-    url: 'https://en.wikipedia.org/wiki/Comuna_13,_Medell%C3%ADn',
-    category: 'Demographics & Geography'
+    title: 'MDPI Sustainability — Resilience as a City Brand: The Case of Comuna 13',
+    url: 'https://www.mdpi.com/2071-1050/12/20/8469',
+    category: 'Peer-Reviewed Academic Paper'
   }
 ];

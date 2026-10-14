@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ExternalLink, BarChart3, TrendingUp } from 'lucide-react';
+import { BarChart3 } from 'lucide-react';
 import { VERIFIED_METRICS, GROWTH_TRAJECTORY } from '../data/tourData.js';
 
 function AnimatedCounter({ value, decimals = 0, prefix = '', suffix = '' }) {
@@ -58,23 +58,14 @@ export default function DataSection() {
   return (
     <section className="content-section" id="data-section">
       <div className="section-header">
-        <div className="section-eyebrow">
-          VERIFIED DATA &amp; ECONOMIC TRAJECTORY · 2011–2035
-        </div>
-        <h2 className="section-title">
-          Quantifying Comuna 13’s Cultural &amp; Economic Transformation
-        </h2>
-        <p className="section-desc">
-          Every figure below is grounded in municipal records, the Medellin Chamber of Commerce,
-          and peer-reviewed urban studies. Estimated visitor ranges are explicitly labeled to
-          maintain strict analytical transparency.
-        </p>
+        <div className="section-eyebrow">VERIFIED DATA &amp; ECONOMIC TRAJECTORY</div>
+        <h2 className="section-title">Comuna 13 Impact in Numbers</h2>
       </div>
 
-      {/* Animated Counter Cards */}
+      {/* Visual Animated Counter Cards (Zero Cluttered Hyperlinks) */}
       <div className="metrics-grid">
         {VERIFIED_METRICS.map((m) => (
-          <div key={m.id} className="metric-card">
+          <div key={m.id} className="metric-card" style={{ borderTop: `3px solid ${m.color}` }}>
             <span
               className={`metric-status-pill ${
                 m.status.includes('Estimated') ? 'estimated' : ''
@@ -92,25 +83,17 @@ export default function DataSection() {
             </div>
             <div className="metric-label">{m.label}</div>
             <p className="metric-sublabel">{m.sublabel}</p>
-            <a
-              href={m.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="metric-source-link"
-            >
-              Source: {m.sourceName} <ExternalLink size={11} style={{ display: 'inline' }} />
-            </a>
           </div>
         ))}
       </div>
 
-      {/* Interactive Dual Chart: Monthly Visitors & Formal Local Businesses */}
+      {/* Visual Bar Chart */}
       <div
         style={{
           background: 'rgba(255, 255, 255, 0.03)',
           border: '1px solid rgba(255, 255, 255, 0.1)',
-          borderRadius: '20px',
-          padding: '1.6rem'
+          borderRadius: '18px',
+          padding: '1.4rem'
         }}
       >
         <div
@@ -120,31 +103,25 @@ export default function DataSection() {
             alignItems: 'center',
             flexWrap: 'wrap',
             gap: '1rem',
-            marginBottom: '1.4rem'
+            marginBottom: '1.1rem'
           }}
         >
-          <div>
-            <h3
-              style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: '1.2rem',
-                fontWeight: 800,
-                color: '#ffffff',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem'
-              }}
-            >
-              <BarChart3 size={18} color="#f59e0b" />
-              Tourism Volume vs. Formal Registered Local Businesses (2011–2035 Forecast)
-            </h3>
-            <p style={{ fontSize: '0.82rem', color: '#94a3b8', marginTop: '0.2rem' }}>
-              Tracking how the 2011 escalators and 2013 Graffitour catalyzed over 2,750 formal
-              neighborhood enterprises — and why capacity management is vital for 2035.
-            </p>
-          </div>
+          <h3
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '1.1rem',
+              fontWeight: 800,
+              color: '#ffffff',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}
+          >
+            <BarChart3 size={18} color="#f59e0b" />
+            Monthly Visitors vs. Registered Local Businesses (2011 – 2035)
+          </h3>
 
-          <div style={{ display: 'flex', gap: '1.2rem', fontSize: '0.78rem', fontWeight: 700 }}>
+          <div style={{ display: 'flex', gap: '1.1rem', fontSize: '0.76rem', fontWeight: 700 }}>
             <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#ff5a1f' }}>
               <span
                 style={{
@@ -155,7 +132,7 @@ export default function DataSection() {
                   display: 'inline-block'
                 }}
               />
-              Monthly Visitors (Thousands, Est.)
+              Monthly Visitors (Est.)
             </span>
             <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#06b6d4' }}>
               <span
@@ -167,19 +144,17 @@ export default function DataSection() {
                   display: 'inline-block'
                 }}
               />
-              Registered Local Businesses
+              Formal Local Businesses
             </span>
           </div>
         </div>
 
-        {/* Responsive Bar Chart Grid */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(145px, 1fr))',
-            gap: '1rem',
-            alignItems: 'end',
-            paddingTop: '1rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+            gap: '0.85rem',
+            alignItems: 'end'
           }}
         >
           {GROWTH_TRAJECTORY.map((item) => {
@@ -189,64 +164,56 @@ export default function DataSection() {
               <div
                 key={item.year}
                 style={{
-                  background: 'rgba(15, 23, 42, 0.75)',
+                  background: 'rgba(15, 23, 42, 0.78)',
                   border: '1px solid rgba(255,255,255,0.08)',
                   borderRadius: '14px',
-                  padding: '1rem',
+                  padding: '0.9rem',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '0.6rem'
+                  gap: '0.45rem'
                 }}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.74rem' }}>
                   <span style={{ color: '#fbbf24', fontWeight: 800 }}>{item.monthlyVisitorsK}k/mo</span>
                   <span style={{ color: '#38bdf8', fontWeight: 800 }}>
-                    {item.formalBusinesses.toLocaleString()} biz
+                    {item.formalBusinesses.toLocaleString()}
                   </span>
                 </div>
 
-                {/* Dual Vertical Bars */}
                 <div
                   style={{
-                    height: '130px',
+                    height: '115px',
                     display: 'flex',
                     alignItems: 'flex-end',
                     justifyContent: 'center',
-                    gap: '12px',
-                    padding: '0 8px',
+                    gap: '10px',
+                    padding: '0 6px',
                     borderBottom: '1px solid rgba(255,255,255,0.12)'
                   }}
                 >
                   <div
                     style={{
-                      width: '32%',
+                      width: '34%',
                       height: `${Math.max(8, visitorPct)}%`,
                       background: 'linear-gradient(180deg, #ff5a1f, #f59e0b)',
-                      borderRadius: '6px 6px 0 0',
-                      transition: 'height 0.6s ease'
+                      borderRadius: '5px 5px 0 0'
                     }}
-                    title={`${item.monthlyVisitorsK},000 monthly visitors`}
                   />
                   <div
                     style={{
-                      width: '32%',
+                      width: '34%',
                       height: `${Math.max(8, bizPct)}%`,
                       background: 'linear-gradient(180deg, #06b6d4, #10b981)',
-                      borderRadius: '6px 6px 0 0',
-                      transition: 'height 0.6s ease'
+                      borderRadius: '5px 5px 0 0'
                     }}
-                    title={`${item.formalBusinesses} registered businesses`}
                   />
                 </div>
 
-                <div style={{ fontWeight: 800, fontSize: '0.92rem', color: '#ffffff' }}>
+                <div style={{ fontWeight: 800, fontSize: '0.88rem', color: '#ffffff' }}>
                   {item.year}
                 </div>
-                <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#e2e8f0' }}>
+                <div style={{ fontSize: '0.73rem', fontWeight: 700, color: '#cbd5e1' }}>
                   {item.milestone}
-                </div>
-                <div style={{ fontSize: '0.72rem', color: '#94a3b8', lineHeight: 1.4 }}>
-                  {item.note}
                 </div>
               </div>
             );

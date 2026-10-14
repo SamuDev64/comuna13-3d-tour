@@ -3,8 +3,9 @@ import {
   ShieldAlert,
   Handshake,
   MessageSquare,
-  Sparkles,
-  ArrowUpRight,
+  PlayCircle,
+  Compass,
+  Image as ImageIcon,
   ChevronDown,
   ChevronUp
 } from 'lucide-react';
@@ -20,103 +21,115 @@ export default function WhyInvestSection({ onJumpToHotspot }) {
   return (
     <section className="content-section" id="why-invest-section">
       <div className="section-header">
-        <div className="section-eyebrow">
-          WHY INVEST &amp; SUPPORT · RESPONSIBLE COMMUNITY CAPITAL
-        </div>
-        <h2 className="section-title">
-          Six Concrete Opportunities &amp; Ethical Risk Mitigation
-        </h2>
-        <p className="section-desc">
-          Investing in Comuna 13 is not about extracting value from a viral tourist spot — it is
-          about co-investing with local artists, youth collectives, and homeowner families so growth
-          strengthens neighborhood dignity rather than displacing it.
-        </p>
+        <div className="section-eyebrow">WHY INVEST &amp; SUPPORT · COMMUNITY-FIRST CAPITAL</div>
+        <h2 className="section-title">6 Concrete Opportunities &amp; Risk Mitigation</h2>
       </div>
 
-      {/* 6 Investment Pillars */}
-      <div className="metrics-grid" style={{ marginBottom: '2.5rem' }}>
+      {/* 6 Visual Photo Cards for Investment Opportunities */}
+      <div className="metrics-grid" style={{ marginBottom: '2.25rem' }}>
         {INVESTMENT_OPPORTUNITIES.map((opp) => (
           <div
             key={opp.id}
             className="metric-card"
-            style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
+            style={{
+              padding: 0,
+              overflow: 'hidden',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between'
+            }}
           >
             <div>
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  marginBottom: '0.6rem'
-                }}
-              >
-                <span className="metric-status-pill">{opp.category}</span>
-                <span style={{ fontSize: '0.76rem', fontWeight: 800, color: '#fbbf24' }}>
-                  {opp.ticketRange}
-                </span>
+              <div style={{ position: 'relative', height: '135px', width: '100%' }}>
+                <img
+                  src={opp.image}
+                  alt={opp.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(180deg, rgba(7,11,20,0.15) 0%, rgba(7,11,20,0.88) 100%)',
+                    display: 'flex',
+                    alignItems: 'flex-end',
+                    justifyContent: 'space-between',
+                    padding: '0.65rem 0.9rem'
+                  }}
+                >
+                  <span className="metric-status-pill" style={{ margin: 0 }}>
+                    {opp.category}
+                  </span>
+                  <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#fbbf24' }}>
+                    {opp.ticketRange}
+                  </span>
+                </div>
               </div>
-              <h3
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '1.1rem',
-                  fontWeight: 800,
-                  color: '#ffffff',
-                  marginBottom: '0.5rem'
-                }}
-              >
-                {opp.title}
-              </h3>
-              <p style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: 1.55, marginBottom: '0.85rem' }}>
-                {opp.description}
-              </p>
+
+              <div style={{ padding: '1rem 1.1rem 0.6rem 1.1rem' }}>
+                <h3
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '1.02rem',
+                    fontWeight: 800,
+                    color: '#ffffff',
+                    marginBottom: '0.55rem'
+                  }}
+                >
+                  {opp.title}
+                </h3>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginBottom: '0.65rem' }}>
+                  {opp.points.map((pt, i) => (
+                    <span key={i} className="visual-tag-chip" style={{ fontSize: '0.71rem' }}>
+                      {pt}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
 
             <div
               style={{
-                paddingTop: '0.75rem',
-                borderTop: '1px solid rgba(255,255,255,0.08)',
-                fontSize: '0.79rem'
+                padding: '0.65rem 1.1rem',
+                background: 'rgba(16, 185, 129, 0.08)',
+                borderTop: '1px solid rgba(16, 185, 129, 0.2)',
+                fontSize: '0.76rem',
+                fontWeight: 700,
+                color: '#34d399'
               }}
             >
-              <div style={{ color: '#34d399', fontWeight: 700, marginBottom: '0.2rem' }}>
-                Target Impact: {opp.impactMetric}
-              </div>
-              <div style={{ color: '#94a3b8' }}>{opp.whyItWorks}</div>
+              Impact: {opp.impactMetric}
             </div>
           </div>
         ))}
       </div>
 
-      {/* Risks & Responsible Mitigation Matrix */}
-      <div style={{ marginBottom: '2.5rem' }}>
+      {/* Concise Risks & Mitigation Table */}
+      <div style={{ marginBottom: '2.25rem' }}>
         <h3
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: '1.35rem',
+            fontSize: '1.2rem',
             fontWeight: 800,
             color: '#ffffff',
-            marginBottom: '0.4rem',
+            marginBottom: '0.75rem',
             display: 'flex',
             alignItems: 'center',
             gap: '0.5rem'
           }}
         >
-          <ShieldAlert size={20} color="#f59e0b" />
-          Risks, Structural Pressures &amp; Community-Led Mitigation
+          <ShieldAlert size={19} color="#f59e0b" />
+          Risks &amp; Community-Led Mitigation
         </h3>
-        <p style={{ fontSize: '0.88rem', color: '#94a3b8', marginBottom: '1.15rem' }}>
-          Addressing the real challenges of overcrowding, resident mobility, and commercialization
-          with transparent governance.
-        </p>
 
         <div className="table-scroll">
           <table className="comparison-table">
             <thead>
               <tr>
-                <th>Identified Risk</th>
-                <th>Severity &amp; Scope</th>
-                <th>On-the-Ground Evidence</th>
-                <th>Responsible Mitigation Strategy</th>
+                <th>Risk Factor</th>
+                <th>Severity</th>
+                <th>Reality on the Ground</th>
+                <th>Responsible Solution</th>
               </tr>
             </thead>
             <tbody>
@@ -133,27 +146,27 @@ export default function WhyInvestSection({ onJumpToHotspot }) {
         </div>
       </div>
 
-      {/* Moment 5: Interactive Gallery Chat, Q&A Prep & Glow/Grow Call to Action */}
+      {/* Moment 5: Call to Action + Quick Media Launchers + Visitor Q&A */}
       <div
         style={{
           background:
             'linear-gradient(135deg, rgba(255, 90, 31, 0.16) 0%, rgba(236, 72, 153, 0.14) 50%, rgba(6, 182, 212, 0.16) 100%)',
           border: '1px solid rgba(255, 255, 255, 0.2)',
-          borderRadius: '22px',
-          padding: '2rem'
+          borderRadius: '20px',
+          padding: '1.6rem'
         }}
       >
         <div
           style={{
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'flex-start',
+            alignItems: 'center',
             flexWrap: 'wrap',
-            gap: '1.5rem',
-            marginBottom: '1.75rem'
+            gap: '1.2rem',
+            marginBottom: '1.4rem'
           }}
         >
-          <div style={{ maxWidth: '700px' }}>
+          <div style={{ maxWidth: '640px' }}>
             <span className="moment-pill">
               <Handshake size={13} />
               MOMENT 5 · CALL TO ACTION &amp; GALLERY CHAT (3 + 2 MIN)
@@ -161,49 +174,52 @@ export default function WhyInvestSection({ onJumpToHotspot }) {
             <h3
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(1.45rem, 2.2vw, 2rem)',
+                fontSize: 'clamp(1.3rem, 2vw, 1.75rem)',
                 fontWeight: 900,
                 color: '#ffffff',
-                marginBottom: '0.6rem'
+                marginTop: '0.45rem',
+                marginBottom: '0.35rem'
               }}
             >
-              “Art Gave Comuna 13 a Voice. Responsible Investment Will Protect Its Future.”
+              “Art Gave Comuna 13 a Voice. Responsible Investment Protects Its Future.”
             </h3>
-            <p style={{ fontSize: '0.95rem', color: '#e2e8f0', lineHeight: 1.6 }}>
-              Whether you visit as a conscious traveler, allocate municipal infrastructure budgets,
-              or back local creative entrepreneurs: choose community-owned tours, fund public
-              mobility access, and ensure the residents who painted this resilience remain its
-              primary beneficiaries.
-            </p>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
             <button
               type="button"
               className="btn-primary"
-              onClick={() => onJumpToHotspot('kolacho')}
+              onClick={() => onJumpToHotspot('escalators', 'photos')}
             >
-              <Sparkles size={16} />
-              <span>Inspect Casa Kolacho in 3D</span>
-              <ArrowUpRight size={15} />
+              <ImageIcon size={15} />
+              <span>Photos Showcase</span>
             </button>
             <button
               type="button"
               className="btn-secondary"
-              onClick={() => onJumpToHotspot('escalators')}
+              onClick={() => onJumpToHotspot('kolacho', 'video')}
             >
-              <span>Inspect 2011 Escalators in 3D</span>
+              <PlayCircle size={15} />
+              <span>Watch Video</span>
+            </button>
+            <button
+              type="button"
+              className="btn-secondary"
+              onClick={() => onJumpToHotspot('escalators', 'streetview')}
+            >
+              <Compass size={15} />
+              <span>360° Map</span>
             </button>
           </div>
         </div>
 
-        {/* Interactive Visitor Q&A Prompts + Glow & Grow Rubric Box */}
+        {/* Visitor Q&A Cards + Glow & Grow */}
         <div
           style={{
-            background: 'rgba(7, 11, 20, 0.78)',
+            background: 'rgba(7, 11, 20, 0.8)',
             border: '1px solid rgba(255,255,255,0.12)',
-            borderRadius: '16px',
-            padding: '1.35rem'
+            borderRadius: '14px',
+            padding: '1.15rem'
           }}
         >
           <div
@@ -212,38 +228,35 @@ export default function WhyInvestSection({ onJumpToHotspot }) {
               justifyContent: 'space-between',
               alignItems: 'center',
               flexWrap: 'wrap',
-              gap: '0.75rem',
-              marginBottom: '1rem'
+              gap: '0.5rem',
+              marginBottom: '0.85rem'
             }}
           >
             <div
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.5rem',
+                gap: '0.45rem',
                 fontWeight: 800,
-                fontSize: '0.96rem',
+                fontSize: '0.9rem',
                 color: '#ffffff'
               }}
             >
-              <MessageSquare size={18} color="#38bdf8" />
-              Live Gallery Discussion: Visitor Questions &amp; “One Glow + One Grow”
+              <MessageSquare size={16} color="#38bdf8" />
+              Visitor Q&amp;A Prompts + “One Glow &amp; One Grow”
             </div>
-            <span style={{ fontSize: '0.76rem', color: '#fbbf24', fontWeight: 700 }}>
-              Click any question below to view structured evidence &amp; C1.1 language targets
-            </span>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             {QA_PREP_CARDS.map((item, idx) => {
               const isOpen = openQaIndex === idx;
               return (
                 <div
                   key={idx}
                   style={{
-                    borderRadius: '12px',
+                    borderRadius: '10px',
                     background: 'rgba(255,255,255,0.04)',
-                    border: '1px solid rgba(255,255,255,0.09)',
+                    border: '1px solid rgba(255,255,255,0.08)',
                     overflow: 'hidden'
                   }}
                 >
@@ -252,12 +265,12 @@ export default function WhyInvestSection({ onJumpToHotspot }) {
                     onClick={() => setOpenQaIndex(isOpen ? -1 : idx)}
                     style={{
                       width: '100%',
-                      padding: '0.85rem 1rem',
+                      padding: '0.75rem 0.95rem',
                       background: 'none',
                       border: 'none',
                       color: '#ffffff',
                       fontWeight: 700,
-                      fontSize: '0.88rem',
+                      fontSize: '0.84rem',
                       textAlign: 'left',
                       display: 'flex',
                       justifyContent: 'space-between',
@@ -266,61 +279,23 @@ export default function WhyInvestSection({ onJumpToHotspot }) {
                     }}
                   >
                     <span>{item.question}</span>
-                    {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                    {isOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
                   </button>
                   {isOpen && (
                     <div
                       style={{
-                        padding: '0 1rem 1rem 1rem',
-                        fontSize: '0.85rem',
+                        padding: '0 0.95rem 0.85rem 0.95rem',
+                        fontSize: '0.82rem',
                         color: '#cbd5e1',
-                        lineHeight: 1.6,
-                        borderTop: '1px solid rgba(255,255,255,0.06)'
+                        lineHeight: 1.5
                       }}
                     >
-                      <div
-                        style={{
-                          fontSize: '0.72rem',
-                          color: '#38bdf8',
-                          fontWeight: 700,
-                          marginTop: '0.6rem',
-                          marginBottom: '0.35rem'
-                        }}
-                      >
-                        Target Language &amp; Argumentation Focus: {item.rubricTarget}
-                      </div>
                       <p>{item.modelAnswer}</p>
                     </div>
                   )}
                 </div>
               );
             })}
-          </div>
-
-          {/* Glow & Grow Prompt Banner for Visitors */}
-          <div
-            style={{
-              marginTop: '1rem',
-              padding: '0.85rem 1rem',
-              borderRadius: '12px',
-              background: 'rgba(16, 185, 129, 0.1)',
-              border: '1px solid rgba(16, 185, 129, 0.3)',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-              gap: '0.75rem',
-              fontSize: '0.82rem'
-            }}
-          >
-            <div>
-              <strong style={{ color: '#34d399' }}>Visitor Feedback Prompt (Glow + Grow): </strong>
-              <span style={{ color: '#e2e8f0' }}>
-                “Before we wrap up our gallery chat, I would love to hear one <strong>Glow</strong>{' '}
-                (what resonated most) and one <strong>Grow</strong> (what we could compare or
-                explore further)!”
-              </span>
-            </div>
           </div>
         </div>
       </div>

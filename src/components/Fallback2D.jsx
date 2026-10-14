@@ -1,9 +1,6 @@
 import React from 'react';
 import { HOTSPOTS } from '../data/tourData.js';
 
-/**
- * Lightweight interactive 2D SVG panoramic fallback for low-power devices or non-WebGL projectors.
- */
 export default function Fallback2D({ isNight, selectedHotspot, onSelectHotspot }) {
   const pinPositions = {
     escalators: { left: '50%', top: '54%' },
@@ -37,7 +34,6 @@ export default function Fallback2D({ isNight, selectedHotspot, onSelectHotspot }
           </linearGradient>
         </defs>
 
-        {/* Sun / Moon */}
         <circle
           cx={isNight ? 1150 : 280}
           cy={160}
@@ -46,7 +42,6 @@ export default function Fallback2D({ isNight, selectedHotspot, onSelectHotspot }
           opacity={0.85}
         />
 
-        {/* Aburra Valley Mountain Ridges */}
         <polygon
           points="0,900 0,420 260,210 580,380 860,170 1190,340 1440,220 1440,900"
           fill={isNight ? '#0f172a' : '#1e3a2f'}
@@ -56,7 +51,6 @@ export default function Fallback2D({ isNight, selectedHotspot, onSelectHotspot }
           fill={isNight ? '#1e293b' : '#334155'}
         />
 
-        {/* Terraced Houses Blocks */}
         {[
           { x: 260, y: 520, w: 95, h: 65, c: '#ec4899' },
           { x: 370, y: 470, w: 110, h: 75, c: '#06b6d4' },
@@ -72,7 +66,6 @@ export default function Fallback2D({ isNight, selectedHotspot, onSelectHotspot }
           </g>
         ))}
 
-        {/* Central 384m Outdoor Escalator Spine */}
         <path
           d="M 620 790 L 660 660 L 635 550 L 690 440 L 670 340 L 715 260"
           stroke="url(#escGrad)"
@@ -82,7 +75,6 @@ export default function Fallback2D({ isNight, selectedHotspot, onSelectHotspot }
           fill="none"
         />
 
-        {/* Metrocable Line */}
         <line
           x1="920"
           y1="680"
@@ -94,7 +86,6 @@ export default function Fallback2D({ isNight, selectedHotspot, onSelectHotspot }
         />
       </svg>
 
-      {/* Interactive Hotspot Pins overlaid on 2D Panorama */}
       {HOTSPOTS.map((spot) => {
         const pos = pinPositions[spot.id] || { left: '50%', top: '50%' };
         const isSelected = selectedHotspot?.id === spot.id;
@@ -111,8 +102,9 @@ export default function Fallback2D({ isNight, selectedHotspot, onSelectHotspot }
               borderColor: spot.color,
               boxShadow: isSelected ? `0 0 24px ${spot.color}` : undefined
             }}
-            onClick={() => onSelectHotspot(spot)}
+            onClick={() => onSelectHotspot(spot, 'photos')}
           >
+            <img src={spot.heroImage} alt={spot.name} className="hotspot-pin-thumb" />
             <span className="hotspot-pin-num" style={{ backgroundColor: spot.color }}>
               {spot.number}
             </span>

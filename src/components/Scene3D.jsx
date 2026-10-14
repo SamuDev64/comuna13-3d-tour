@@ -5,17 +5,12 @@ import * as THREE from 'three';
 import gsap from 'gsap';
 import { HOTSPOTS } from '../data/tourData.js';
 
-/**
- * Generates a vibrant procedural street-art mural texture using HTML5 Canvas.
- * 100% self-contained with zero external image URLs.
- */
 function createMuralTexture(seed, palette, labelText) {
   const canvas = document.createElement('canvas');
   canvas.width = 512;
   canvas.height = 256;
   const ctx = canvas.getContext('2d');
 
-  // Background gradient
   const grad = ctx.createLinearGradient(0, 0, 512, 256);
   grad.addColorStop(0, palette[0]);
   grad.addColorStop(0.5, palette[1]);
@@ -23,7 +18,6 @@ function createMuralTexture(seed, palette, labelText) {
   ctx.fillStyle = grad;
   ctx.fillRect(0, 0, 512, 256);
 
-  // Geometric Andean rays & mural blocks
   for (let i = 0; i < 14; i++) {
     const angle = ((i + seed) * Math.PI) / 7;
     ctx.fillStyle = palette[(i + 1) % palette.length];
@@ -37,7 +31,6 @@ function createMuralTexture(seed, palette, labelText) {
   }
 
   ctx.globalAlpha = 0.85;
-  // Stylized sun / vinyl disc motif
   ctx.fillStyle = '#fbbf24';
   ctx.beginPath();
   ctx.arc(110 + (seed % 3) * 40, 128, 64, 0, Math.PI * 2);
@@ -49,7 +42,6 @@ function createMuralTexture(seed, palette, labelText) {
   ctx.arc(110 + (seed % 3) * 40, 128, 42, 0, Math.PI * 2);
   ctx.stroke();
 
-  // Stylized peace dove / geometric wings
   ctx.fillStyle = '#ffffff';
   ctx.beginPath();
   ctx.moveTo(350, 140);
@@ -58,7 +50,6 @@ function createMuralTexture(seed, palette, labelText) {
   ctx.quadraticCurveTo(380, 165, 350, 140);
   ctx.fill();
 
-  // Bold street-art frame & typography
   ctx.strokeStyle = '#0f172a';
   ctx.lineWidth = 10;
   ctx.strokeRect(8, 8, 496, 240);
@@ -76,32 +67,26 @@ function createMuralTexture(seed, palette, labelText) {
   return texture;
 }
 
-/**
- * Camera controller that executes the initial fly-in from above the Aburra Valley
- * and smoothly transitions between tour stops or clicked hotspots using GSAP.
- */
 function CameraController({ activeStop, selectedHotspot, freeExplore }) {
   const { camera } = useThree();
   const controlsRef = useRef();
   const hasRunIntro = useRef(false);
   const targetVec = useRef(new THREE.Vector3(0, 6, 0));
 
-  // Initial cinematic descent from high above the valley
   useEffect(() => {
     if (!hasRunIntro.current) {
       hasRunIntro.current = true;
-      camera.position.set(0, 44, 76);
+      camera.position.set(0, 42, 72);
       gsap.to(camera.position, {
         x: activeStop.cameraPos[0],
         y: activeStop.cameraPos[1],
         z: activeStop.cameraPos[2],
-        duration: 2.8,
+        duration: 2.6,
         ease: 'power3.out'
       });
     }
   }, [camera, activeStop]);
 
-  // Move camera when activeStop or selectedHotspot changes
   useEffect(() => {
     if (freeExplore) return;
 
@@ -110,7 +95,7 @@ function CameraController({ activeStop, selectedHotspot, freeExplore }) {
 
     if (selectedHotspot) {
       const [hx, hy, hz] = selectedHotspot.coordinates;
-      destPos = [hx * 1.15, hy + 3.2, hz + 10.5];
+      destPos = [hx * 1.15, hy + 3.0, hz + 9.5];
       destTarget = [hx, hy + 0.5, hz];
     }
 
@@ -118,7 +103,7 @@ function CameraController({ activeStop, selectedHotspot, freeExplore }) {
       x: destPos[0],
       y: destPos[1],
       z: destPos[2],
-      duration: 1.8,
+      duration: 1.6,
       ease: 'power3.inOut',
       overwrite: 'auto'
     });
@@ -127,7 +112,7 @@ function CameraController({ activeStop, selectedHotspot, freeExplore }) {
       x: destTarget[0],
       y: destTarget[1],
       z: destTarget[2],
-      duration: 1.8,
+      duration: 1.6,
       ease: 'power3.inOut',
       overwrite: 'auto'
     });
@@ -145,18 +130,15 @@ function CameraController({ activeStop, selectedHotspot, freeExplore }) {
       ref={controlsRef}
       enableDamping
       dampingFactor={0.06}
-      enableZoom={freeExplore}
+      enableZoom={ true }
       enablePan={freeExplore}
       maxPolarAngle={Math.PI / 2 - 0.04}
-      minDistance={6}
+      minDistance={5}
       maxDistance={75}
     />
   );
 }
 
-/**
- * Procedural terraced hillside of Comuna 13 and surrounding Aburra Valley peaks.
- */
 function ValleyAndHillside({ isNight }) {
   const terraces = useMemo(() => {
     const list = [];
@@ -180,7 +162,6 @@ function ValleyAndHillside({ isNight }) {
     [isNight]
   );
 
-  // Valley floor city lights representing Medellin below
   const valleyLights = useMemo(() => {
     const pts = [];
     for (let i = 0; i < 120; i++) {
@@ -194,13 +175,11 @@ function ValleyAndHillside({ isNight }) {
 
   return (
     <group>
-      {/* Aburra Valley Floor */}
       <mesh position={[0, -0.6, 8]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <planeGeometry args={[140, 120]} />
         <meshStandardMaterial color={isNight ? '#060a14' : '#1a2e26'} roughness={0.9} />
       </mesh>
 
-      {/* Distant Mountain Peaks */}
       {mountainPeaks.map((m, idx) => (
         <mesh key={idx} position={m.pos}>
           <coneGeometry args={[m.radius, m.height, 7]} />
@@ -208,7 +187,6 @@ function ValleyAndHillside({ isNight }) {
         </mesh>
       ))}
 
-      {/* Stepped Hillside Terraces of Comuna 13 */}
       {terraces.map((t) => (
         <mesh key={t.id} position={[0, t.y, t.z]} receiveShadow castShadow>
           <boxGeometry args={[t.width, 1.25, t.depth]} />
@@ -219,7 +197,6 @@ function ValleyAndHillside({ isNight }) {
         </mesh>
       ))}
 
-      {/* Valley Floor Distant City Lights */}
       {valleyLights.map((vl) => (
         <mesh key={vl.id} position={[vl.x, -0.45, vl.z]}>
           <boxGeometry args={[0.35, 0.15, 0.35]} />
@@ -234,21 +211,18 @@ function ValleyAndHillside({ isNight }) {
   );
 }
 
-/**
- * 140+ Procedural Terraced Houses with colorful facades, tin/terracotta roofs, and warm glowing windows.
- */
 function HillsideHouses({ isNight }) {
   const houses = useMemo(() => {
     const palette = [
-      '#c2410c', // Brick terracotta
-      '#ea580c', // Warm orange
-      '#ec4899', // Mural magenta
-      '#06b6d4', // Caribbean cyan
-      '#f59e0b', // Solar yellow
-      '#10b981', // Emerald green
-      '#8b5cf6', // Vibrant violet
-      '#e11d48', // Crimson
-      '#d97706'  // Ochre
+      '#c2410c',
+      '#ea580c',
+      '#ec4899',
+      '#06b6d4',
+      '#f59e0b',
+      '#10b981',
+      '#8b5cf6',
+      '#e11d48',
+      '#d97706'
     ];
     const items = [];
     let seed = 13;
@@ -263,7 +237,6 @@ function HillsideHouses({ isNight }) {
       const maxSpan = 14.5 - row * 0.45;
 
       for (let x = -maxSpan; x <= maxSpan; x += 1.75) {
-        // Leave central corridor open for the 6 outdoor escalators
         if (Math.abs(x) < 2.2) continue;
 
         const w = 1.2 + rand() * 0.45;
@@ -273,15 +246,13 @@ function HillsideHouses({ isNight }) {
         const zOffset = zBase + (rand() - 0.5) * 0.45;
         const color = palette[Math.floor(rand() * palette.length)];
         const roofColor = rand() > 0.45 ? '#7c2d12' : '#64748b';
-        const hasUpperStory = rand() > 0.52;
 
         items.push({
           id: `${row}-${x.toFixed(1)}`,
           pos: [xOffset, yBase + h / 2, zOffset],
           size: [w, h, d],
           color,
-          roofColor,
-          hasUpperStory
+          roofColor
         });
       }
     }
@@ -295,19 +266,16 @@ function HillsideHouses({ isNight }) {
         const [px, py, pz] = house.pos;
         return (
           <group key={house.id} position={[px, py, pz]}>
-            {/* Main House Body */}
             <mesh castShadow receiveShadow>
               <boxGeometry args={[w, h, d]} />
               <meshStandardMaterial color={house.color} roughness={0.65} />
             </mesh>
 
-            {/* Pitched Tin / Terracotta Roof */}
             <mesh position={[0, h / 2 + 0.12, 0]} rotation={[0.12, 0, 0]}>
               <boxGeometry args={[w + 0.16, 0.14, d + 0.2]} />
               <meshStandardMaterial color={house.roofColor} roughness={0.5} metalness={0.3} />
             </mesh>
 
-            {/* Warm Glowing Windows (Front) */}
             <mesh position={[-w * 0.22, 0.1, d / 2 + 0.01]}>
               <planeGeometry args={[0.24, 0.28]} />
               <meshStandardMaterial
@@ -331,9 +299,6 @@ function HillsideHouses({ isNight }) {
   );
 }
 
-/**
- * The 6-Section 384-Meter Outdoor Electric Escalators with iconic orange canopies and moving steps.
- */
 function OutdoorEscalators({ isNight }) {
   const stepsGroupRef = useRef();
 
@@ -342,7 +307,7 @@ function OutdoorEscalators({ isNight }) {
     for (let i = 0; i < 6; i++) {
       const y = 1.4 + i * 1.75;
       const z = 7.0 - i * 2.45;
-      const xShift = (i % 2 === 0 ? -0.25 : 0.25);
+      const xShift = i % 2 === 0 ? -0.25 : 0.25;
       arr.push({ id: i, x: xShift, y, z });
     }
     return arr;
@@ -360,13 +325,11 @@ function OutdoorEscalators({ isNight }) {
     <group>
       {sections.map((sec) => (
         <group key={sec.id} position={[sec.x, sec.y, sec.z]}>
-          {/* Escalator Structural Channel */}
           <mesh rotation={[0.58, 0, 0]} castShadow>
             <boxGeometry args={[1.45, 0.35, 3.1]} />
             <meshStandardMaterial color="#334155" metalness={0.6} roughness={0.35} />
           </mesh>
 
-          {/* Glowing Neon Handrails */}
           <mesh position={[-0.65, 0.28, 0]} rotation={[0.58, 0, 0]}>
             <boxGeometry args={[0.08, 0.16, 3.05]} />
             <meshStandardMaterial
@@ -384,7 +347,6 @@ function OutdoorEscalators({ isNight }) {
             />
           </mesh>
 
-          {/* Iconic Orange Weatherproof Canopy Roof */}
           <mesh position={[0, 1.15, 0]} rotation={[0.58, 0, 0]} castShadow>
             <boxGeometry args={[2.1, 0.14, 3.25]} />
             <meshStandardMaterial
@@ -395,7 +357,6 @@ function OutdoorEscalators({ isNight }) {
             />
           </mesh>
 
-          {/* Landing Platform Plaza between sections */}
           <mesh position={[0, 0.8, -1.35]}>
             <boxGeometry args={[2.6, 0.25, 1.3]} />
             <meshStandardMaterial color="#475569" roughness={0.7} />
@@ -403,7 +364,6 @@ function OutdoorEscalators({ isNight }) {
         </group>
       ))}
 
-      {/* Animated Moving Step Markers */}
       <group ref={stepsGroupRef}>
         {sections.map((sec) => (
           <mesh key={`step-${sec.id}`} position={[sec.x, sec.y + 0.18, sec.z]} rotation={[0.58, 0, 0]}>
@@ -420,9 +380,6 @@ function OutdoorEscalators({ isNight }) {
   );
 }
 
-/**
- * Procedural Street Art Murals along the Graffitour Corridor.
- */
 function ProceduralMurals({ isNight }) {
   const muralConfigs = useMemo(
     () => [
@@ -487,12 +444,10 @@ function ProceduralMurals({ isNight }) {
     <group>
       {muralConfigs.map((m, idx) => (
         <group key={m.id} position={m.pos} rotation={m.rot}>
-          {/* Backing Wall */}
           <mesh position={[0, 0, -0.08]} castShadow>
             <boxGeometry args={[m.size[0] + 0.2, m.size[1] + 0.2, 0.14]} />
             <meshStandardMaterial color="#1e293b" />
           </mesh>
-          {/* Painted Canvas Plane */}
           <mesh>
             <planeGeometry args={m.size} />
             <meshStandardMaterial
@@ -509,9 +464,6 @@ function ProceduralMurals({ isNight }) {
   );
 }
 
-/**
- * San Javier Metrocable Line J Aerial Gondolas.
- */
 function MetrocableSystem({ isNight }) {
   const cabin1Ref = useRef();
   const cabin2Ref = useRef();
@@ -532,7 +484,6 @@ function MetrocableSystem({ isNight }) {
 
   return (
     <group>
-      {/* Support Pylons */}
       <mesh position={[14, 1.25, 9]}>
         <cylinderGeometry args={[0.18, 0.35, 5.5, 8]} />
         <meshStandardMaterial color="#94a3b8" metalness={0.7} />
@@ -542,7 +493,6 @@ function MetrocableSystem({ isNight }) {
         <meshStandardMaterial color="#94a3b8" metalness={0.7} />
       </mesh>
 
-      {/* Gondola Cabin 1 */}
       <group ref={cabin1Ref}>
         <mesh>
           <boxGeometry args={[0.95, 0.85, 0.95]} />
@@ -554,7 +504,6 @@ function MetrocableSystem({ isNight }) {
         </mesh>
       </group>
 
-      {/* Gondola Cabin 2 */}
       <group ref={cabin2Ref}>
         <mesh>
           <boxGeometry args={[0.95, 0.85, 0.95]} />
@@ -570,13 +519,13 @@ function MetrocableSystem({ isNight }) {
 }
 
 /**
- * Interactive 3D Hotspot Markers with pulsing rings and HTML labels.
+ * Louvre & UNESCO Style 3D Exhibition Pedestals & Floating Real-Photo Gallery Frames.
  */
 function HotspotMarkers({ selectedHotspot, onSelectHotspot }) {
   const ringRefs = useRef([]);
 
   useFrame((state) => {
-    const scale = 1 + Math.sin(state.clock.getElapsedTime() * 3.2) * 0.18;
+    const scale = 1 + Math.sin(state.clock.getElapsedTime() * 3.2) * 0.16;
     ringRefs.current.forEach((ring) => {
       if (ring) {
         ring.scale.set(scale, scale, scale);
@@ -590,15 +539,21 @@ function HotspotMarkers({ selectedHotspot, onSelectHotspot }) {
         const isSelected = selectedHotspot?.id === spot.id;
         return (
           <group key={spot.id} position={spot.coordinates}>
+            {/* UNESCO-Style Illuminated Pedestal Base in 3D */}
+            <mesh position={[0, -0.35, 0]}>
+              <cylinderGeometry args={[0.42, 0.55, 0.7, 16]} />
+              <meshStandardMaterial color="#0f172a" metalness={0.5} roughness={0.3} />
+            </mesh>
+
             {/* Pulsing 3D Halo */}
             <mesh
               ref={(el) => (ringRefs.current[idx] = el)}
               onClick={(e) => {
                 e.stopPropagation();
-                onSelectHotspot(spot);
+                onSelectHotspot(spot, 'photos');
               }}
             >
-              <sphereGeometry args={[0.52, 16, 16]} />
+              <sphereGeometry args={[0.48, 16, 16]} />
               <meshBasicMaterial
                 color={spot.color}
                 transparent
@@ -606,38 +561,85 @@ function HotspotMarkers({ selectedHotspot, onSelectHotspot }) {
               />
             </mesh>
 
-            {/* Core Sphere */}
             <mesh
               onClick={(e) => {
                 e.stopPropagation();
-                onSelectHotspot(spot);
+                onSelectHotspot(spot, 'photos');
               }}
             >
-              <sphereGeometry args={[0.28, 16, 16]} />
+              <sphereGeometry args={[0.26, 16, 16]} />
               <meshStandardMaterial
                 color="#ffffff"
                 emissive={spot.color}
-                emissiveIntensity={1.6}
+                emissiveIntensity={1.8}
               />
             </mesh>
 
-            {/* Floating Interactive HTML Badge */}
-            <Html position={[0, 0.85, 0]} center distanceFactor={28} zIndexRange={[30, 0]}>
-              <button
-                type="button"
-                className="hotspot-3d-pin"
-                style={{ borderColor: spot.color }}
+            {/* Louvre-Style Floating Framed Exhibit Card in 3D Space */}
+            <Html position={[0, 1.35, 0]} center distanceFactor={24} zIndexRange={[30, 0]}>
+              <div
                 onClick={(e) => {
                   e.stopPropagation();
-                  onSelectHotspot(spot);
+                  onSelectHotspot(spot, 'photos');
                 }}
-                title={`Inspect ${spot.name}`}
+                style={{
+                  width: '150px',
+                  background: 'rgba(8, 12, 24, 0.92)',
+                  border: `2px solid ${spot.color}`,
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  cursor: 'pointer',
+                  boxShadow: isSelected
+                    ? `0 0 28px ${spot.color}`
+                    : '0 10px 25px rgba(0,0,0,0.8)',
+                  transition: 'transform 0.2s ease'
+                }}
+                title={`Click to open ${spot.name} (Real Photos, 3D Object, YouTube Video & 360 Street View)`}
               >
-                <span className="hotspot-pin-num" style={{ backgroundColor: spot.color }}>
-                  {spot.number}
-                </span>
-                <span>{spot.name}</span>
-              </button>
+                <div style={{ position: 'relative', height: '78px', width: '100%' }}>
+                  <img
+                    src={spot.heroImage}
+                    alt={spot.name}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                  <span
+                    style={{
+                      position: 'absolute',
+                      top: '5px',
+                      left: '5px',
+                      width: '20px',
+                      height: '20px',
+                      borderRadius: '50%',
+                      background: spot.color,
+                      color: '#050811',
+                      fontWeight: 900,
+                      fontSize: '0.7rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}
+                  >
+                    {spot.number}
+                  </span>
+                </div>
+                <div style={{ padding: '0.35rem 0.5rem' }}>
+                  <div
+                    style={{
+                      fontSize: '0.68rem',
+                      fontWeight: 800,
+                      color: '#ffffff',
+                      whiteSpace: 'nowrap',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis'
+                    }}
+                  >
+                    {spot.name}
+                  </div>
+                  <div style={{ fontSize: '0.58rem', color: '#fbbf24', fontWeight: 700 }}>
+                    Click: 3D · Photos · Video · 360°
+                  </div>
+                </div>
+              </div>
             </Html>
           </group>
         );
@@ -657,13 +659,12 @@ export default function Scene3D({
     <div className="canvas-wrapper">
       <Canvas
         shadows
-        camera={{ position: [0, 26, 48], fov: 45, near: 0.1, far: 220 }}
+        camera={{ position: [0, 24, 44], fov: 45, near: 0.1, far: 220 }}
         dpr={[1, 1.75]}
       >
         <color attach="background" args={[isNight ? '#050812' : '#0f243c']} />
         <fog attach="fog" args={[isNight ? '#050812' : '#0f243c', 28, 95]} />
 
-        {/* Dynamic Day / Night Lighting */}
         <ambientLight intensity={isNight ? 0.38 : 1.15} color={isNight ? '#93c5fd' : '#fffbeb'} />
         <directionalLight
           position={isNight ? [-18, 28, 15] : [24, 36, 22]}
@@ -672,7 +673,6 @@ export default function Scene3D({
           castShadow
         />
 
-        {/* Warm Barrio Hillside Point Lights */}
         <pointLight
           position={[0, 7, 3]}
           intensity={isNight ? 3.2 : 0.8}
@@ -698,7 +698,6 @@ export default function Scene3D({
           color="#f59e0b"
         />
 
-        {/* Night Sky Stars & Ambient Floating Particles */}
         {isNight && (
           <Stars radius={80} depth={40} count={2400} factor={4} saturation={0} fade speed={1} />
         )}
@@ -711,7 +710,6 @@ export default function Scene3D({
           color={isNight ? '#fbbf24' : '#fde047'}
         />
 
-        {/* Procedural 3D Architecture & Terrain */}
         <ValleyAndHillside isNight={isNight} />
         <HillsideHouses isNight={isNight} />
         <OutdoorEscalators isNight={isNight} />
@@ -722,7 +720,6 @@ export default function Scene3D({
           onSelectHotspot={onSelectHotspot}
         />
 
-        {/* Camera & Orbit Controls */}
         <CameraController
           activeStop={activeStop}
           selectedHotspot={selectedHotspot}
